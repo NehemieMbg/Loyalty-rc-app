@@ -1,0 +1,146 @@
+@import '../../../sass/variables';
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+.signin-container {
+  margin: 8rem 0;
+  display: grid;
+
+  &__greeting {
+    font-size: 2rem;
+    // grid-row: 1 / 2;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.signin-chioce {
+  justify-self: center;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.register-container__form {
+  // max-width: 33rem;
+
+  display: grid;
+  grid-template-columns: 35rem;
+  grid-template-rows: repeat(4, min-content);
+  gap: 1rem;
+
+  @media only screen and (max-width: $login-sm) {
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
+
+  .exclamation-icon-circle {
+    height: 1.6rem;
+    // @media only screen and (max-width: $login-sm) {
+    //   height: 1.6rem;
+    // }
+  }
+
+  &-email {
+    grid-row: 1 / 2;
+    // grid-column: 1 / 2;
+  }
+
+  &-password {
+    grid-row: 2 / 3;
+    // grid-column: 1 / 2;
+  }
+
+  .error-message {
+    color: $color-error-primary;
+    font-size: 1.4rem;
+    // margin-left: 0.8rem;
+    display: flex;
+    justify-items: center;
+    gap: 0.4rem;
+
+    @media only screen and (max-width: $login-sm) {
+      font-size: 1.2rem;
+    }
+  }
+
+  //? To change
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .register-action__container {
+    position: relative;
+    grid-row: 3 / 4 !important;
+    // grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-row: max-content;
+    margin-top: 1.5rem;
+
+    @media only screen and (max-width: $login-sm) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  div input,
+  div select {
+    padding: 1rem 1rem;
+    outline: none;
+    font-family: inherit;
+    font-size: 1.6rem;
+
+    border: none;
+    border: 0.14rem solid $color-secondary-darkest;
+    border-radius: 0.5rem;
+  }
+
+  &-btn {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 400;
+    justify-self: end;
+    padding: 1.5rem 3.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: $color-secondary-darkest;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+
+    @media only screen and (max-width: $login-sm) {
+      width: 100%;
+      padding: 1.5rem 0;
+      font-size: 1.6rem;
+      // grid-row: 1 / 2;
+    }
+
+    @media only screen and (max-width: $login-xs) {
+      font-size: 1.4rem;
+    }
+
+    &:hover {
+      background-color: $color-black;
+      transition: 0.2s all ease-in;
+    }
+  }
+
+  .regsiter-password-forgot:link,
+  .regsiter-password-forgot:visited {
+    align-self: center;
+    font-size: 1.3rem;
+    color: $color-secondary-dark;
+    // text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      transition: all 0.3s;
+      color: $color-black;
+    }
+
+    @media only screen and (max-width: $login-sm) {
+      // justify-self: end;
+    }
+  }
+}
