@@ -97,6 +97,7 @@
   }
 
   &-btn {
+    position: relative;
     font-size: inherit;
     font-family: inherit;
     font-weight: 400;
@@ -124,11 +125,30 @@
       background-color: $color-black;
       transition: 0.2s all ease-in;
     }
+
+    .register-container__form-btn-loading {
+      scale: 0.5;
+      position: absolute;
+      z-index: 1;
+      transform: translate(-100%, -50%);
+      color: $color-white;
+      left: 50%;
+    }
+  }
+
+  .btn-disabled {
+    color: $color-secondary-dark;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $color-secondary-darkest;
+    }
   }
 
   .regsiter-password-forgot:link,
   .regsiter-password-forgot:visited {
     align-self: center;
+    width: max-content;
     font-size: 1.3rem;
     color: $color-secondary-dark;
     // text-decoration: none;

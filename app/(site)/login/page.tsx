@@ -11,6 +11,7 @@ import { clearInuputs } from '@/app/utils/formUtils';
 import ExclamationCircle from '@/app/components/UI/ExclamationCircle';
 import GoogleBtn from '@/app/components/UI/GoogleBtn';
 import { useRouter } from 'next/navigation';
+import CircularIndeterminate from '@/app/components/UI/CircularInterminate';
 
 export default function Login() {
   const session = useSession();
@@ -21,6 +22,7 @@ export default function Login() {
     password: '',
   });
 
+  const [submittingIsLoading, setSubmittingIsLoading] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -37,22 +39,28 @@ export default function Login() {
     event.preventDefault();
 
     try {
+      setSubmittingIsLoading(true);
       const response = await signIn('credentials', {
         email: data.email,
         password: data.password,
         redirect: false,
       });
 
+      // If Error
       if (response?.error) {
         clearInuputs([passwordRef]);
         setErrorMessage(response.error);
         errorPopUp("Une erreur s'est produite");
+        setSubmittingIsLoading(false);
         throw new Error(response.error);
       }
 
+      // If no Error
       setErrorMessage(null);
       clearInuputs([emailRef, passwordRef]);
+      setSubmittingIsLoading(false);
       successPopUp('Connexion réussie.');
+      router.push('/');
     } catch (error) {
       console.error(error);
     }
@@ -121,13 +129,19 @@ export default function Login() {
             </Link>
             <button
               type="submit"
-              className={styles['register-container__form-btn']}
+              className={`${styles['register-container__form-btn']} ${
+                submittingIsLoading ? styles['btn-disabled'] : null
+              }`}
             >
+              {submittingIsLoading && (
+                <CircularIndeterminate
+                  className={styles['register-container__form-btn-loading']}
+                />
+              )}
               Connection
             </button>
           </div>
         </form>
-        {/* <button onClick={() => signOut()}>Sign Out</button> */}
       </div>
     </ConnectUser>
   );

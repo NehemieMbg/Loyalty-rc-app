@@ -2,12 +2,13 @@ import '../sass/_global.scss';
 import { Exo } from 'next/font/google';
 import Provider from '@/app/context/AuthContext';
 import ToasterContext from './context/ToasterContext';
+import Navbar from '@/app/components/Navigation/Navbar';
 
-// const inter = Exo({
-//   weight: ['100', '200', '300', '400', '500', '700'],
-//   style: ['normal', 'italic'],
-//   subsets: ['latin'],
-// });
+const inter = Exo({
+  weight: ['100', '200', '300', '400', '500', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -22,6 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <header>
+          <Navbar />
+        </header>
         <Provider>
           <ToasterContext />
           {children}

@@ -13,7 +13,7 @@ $color-secondary-darkest: #232323;
 
 $color-error-primary: #ff3131;
 
-// Width
+// max-Width
 $md: 149.7rem;
 
 // login and registration
@@ -26,3 +26,18 @@ $sides-padding-md: 0 5.5vw;
 
 // Margin
 $sides-margin-md: 0 5.5vw;
+
+// @media 'Responsive width' 'breaking point'
+$mobile-xs: 0;
+$mobile-sm: 320px;
+$mobile-md: 375px;
+$mobile-lg: 425px;
+
+$tablet-xs: 625px;
+$tablet-sm: 768px;
+$tablet-md: 900px;
+
+$laptop-xs: 1024px;
+$laptop-sm: 1256px;
+$laptop-md: 1440px;
+$laptop-lg: 1920px;

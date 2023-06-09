@@ -1,0 +1,211 @@
+@import '../../../sass/variables';
+
+// * Containe all (parent)
+.nav {
+  padding: $sides-padding-md;
+  background-color: $color-white;
+  border-bottom: 0.1rem solid $color-secondary-light;
+}
+
+.nav-container {
+  display: grid;
+  max-width: $md;
+  margin: 0 auto;
+  grid-template-columns: 1fr minmax(min-content, max-content) 1fr;
+  grid-template-rows: 8rem;
+  align-items: center;
+
+  @media only screen and (max-width: $laptop-md) {
+    grid-template-columns: max-content 1fr max-content;
+  }
+
+  @media only screen and (max-width: $laptop-xs) {
+    grid-template-rows: 7.5rem;
+  }
+
+  @media only screen and (max-width: $tablet-sm) {
+    grid-template-rows: 7rem;
+  }
+
+  @media only screen and (max-width: $tablet-xs) {
+    grid-template-rows: 6.5rem;
+  }
+
+  // * Logo
+  &__logo {
+    grid-column: 1 / 2;
+    font-size: 2rem;
+    font-weight: 400;
+    justify-self: start;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-black;
+    }
+
+    @media only screen and (max-width: $laptop-xs) {
+      font-size: 1.9rem;
+    }
+
+    @media only screen and (max-width: $mobile-lg) {
+      font-size: 1.8rem;
+    }
+  }
+
+  // * Quick links
+  &__list {
+    grid-column: 2 / 3;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 3.5rem;
+
+    @media only screen and (max-width: $laptop-md) {
+      display: none;
+    }
+  }
+
+  li {
+    a:link,
+    a:visited {
+      text-decoration: none;
+      color: $color-black;
+    }
+
+    a:active,
+    a:hover {
+      color: $color-primary-dark;
+      transition: color 0.3s;
+    }
+
+    a {
+      position: relative;
+      transition: color 0.3s;
+    }
+  }
+}
+
+.nav-menu-container {
+  grid-column: 3 / 4;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+
+  @media only screen and (max-width: $laptop-sm) {
+    gap: 2rem;
+  }
+
+  @media only screen and (max-width: $laptop-xs) {
+    gap: 1.5rem;
+  }
+
+  &__user-link:link,
+  &__user-link:visited {
+    text-decoration: none;
+    color: $color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-primary-dark;
+      transition: color 0.3s;
+    }
+  }
+
+  &__user-icon {
+    cursor: pointer;
+    height: 2.2rem;
+    width: max-content;
+    margin: auto 0;
+    line-height: 1;
+
+    @media only screen and (max-width: $laptop-sm) {
+      height: 2.1rem;
+    }
+
+    @media only screen and (max-width: $tablet-md) {
+      display: none;
+    }
+  }
+
+  // * Vertical line
+  &__vl {
+    height: 2.7rem;
+    border-left: 0.1rem solid $color-black;
+
+    @media only screen and (max-width: $laptop-xs) {
+      height: 2.5rem;
+    }
+
+    @media only screen and (max-width: $tablet-md) {
+      display: none;
+    }
+  }
+
+  &__menu-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-primary-dark;
+      transition: color 0.3s;
+    }
+  }
+
+  // * Hamburger button
+  &__menu-btn-hamburger {
+    background-color: $color-black;
+    height: 0.08rem;
+    width: 2.4rem;
+    display: block;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 2.4rem;
+      height: 0.08rem;
+      background-color: $color-black;
+    }
+
+    &::before {
+      transform: translateY(-0.7rem);
+    }
+
+    &::after {
+      transform: translateY(0.7rem);
+    }
+
+    @media only screen and (max-width: $laptop-sm) {
+      &::before {
+        transform: translateY(-0.6rem);
+      }
+
+      &::after {
+        transform: translateY(0.6rem);
+      }
+    }
+  }
+
+  &__menu-btn-hamburger::before,
+  &__menu-btn-hamburger::after,
+  &__menu-btn-hamburger {
+    transition: all 0.3s;
+  }
+
+  &__menu-btn:hover &__menu-btn-hamburger::before,
+  &__menu-btn:hover &__menu-btn-hamburger::after,
+  &__menu-btn:hover &__menu-btn-hamburger {
+    background-color: $color-primary-dark;
+    transition: all 0.3s;
+  }
+}

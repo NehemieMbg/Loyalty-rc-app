@@ -5,11 +5,11 @@ import { useEffect, useState, useRef, FormEvent } from 'react';
 import { clearInuputs } from '@/app/utils/formUtils';
 import { checkInputsFields } from '@/app/utils/formUtils';
 import { useRouter } from 'next/navigation';
-import ExclamationCircle from '@/app/components/UI/ExclamationCircle';
 import { errorPopUp, successPopUp } from '@/app/components/UI/SuccessPopUp';
 import GoogleBtn from '@/app/components/UI/GoogleBtn';
 import { signIn, useSession } from 'next-auth/react';
 import ErrorMessage from '@/app/components/ErrorMessage/ErrorMessage';
+import CircularIndeterminate from '@/app/components/UI/CircularInterminate';
 
 import ConnectUser from '@/app/components/logins/ConnectUser';
 
@@ -24,6 +24,8 @@ export default function Register() {
     password: '',
     confirmPassword: '',
   });
+
+  const [submittingIsLoading, setSubmittingIsLoading] = useState(false);
 
   const [lastNameIsFocused, setLastNameIsFocused] = useState(false);
   const [firstNameIsFocused, setFirstNameIsFocused] = useState(false);
@@ -89,6 +91,7 @@ export default function Register() {
 
   async function registerUser(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setSubmittingIsLoading(true);
 
     try {
       const response = await fetch('/api/register', {
@@ -116,11 +119,13 @@ export default function Register() {
         if (messages.emailErrorMsg === 'Cette email déjà utilisé.') {
           setEmailError(messages.emailErrorMsg);
         }
+        setSubmittingIsLoading(false);
         errorPopUp("Une erreur s'est produite");
         throw new Error(JSON.stringify(messages));
       }
 
-      // if Error
+      // if No Error
+      setSubmittingIsLoading(false);
       successPopUp('Votre compte a bien été créé!');
 
       setLastNameError('');
@@ -128,6 +133,7 @@ export default function Register() {
       setEmailError('');
       setPasswordError('');
       setConfirmPasswordError('');
+      router.push('/login');
     } catch (error) {
       console.error(error);
     }
@@ -139,8 +145,6 @@ export default function Register() {
       passwordRef,
       passwordConfirmRef,
     ]);
-
-    // router.push('/');
   }
 
   return (
@@ -259,8 +263,16 @@ export default function Register() {
 
             <button
               type="submit"
-              className={styles['register-container__form-btn']}
+              className={`${styles['register-container__form-btn']} ${
+                submittingIsLoading ? styles['btn-disabled'] : null
+              }`}
+              disabled={submittingIsLoading}
             >
+              {submittingIsLoading && (
+                <CircularIndeterminate
+                  className={styles['register-container__form-btn-loading']}
+                />
+              )}
               S'inscrire maintenant
             </button>
           </form>

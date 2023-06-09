@@ -58,6 +58,7 @@
   }
 
   &-btn {
+    position: relative;
     margin-top: 1.5rem;
     font-size: inherit;
     font-family: inherit;
@@ -85,6 +86,24 @@
     &:hover {
       background-color: $color-black;
       transition: 0.2s all ease-in;
+    }
+
+    .register-container__form-btn-loading {
+      scale: 0.5;
+      position: absolute;
+      z-index: 1;
+      transform: translate(-100%, -50%);
+      color: $color-white;
+      left: 50%;
+    }
+  }
+
+  .btn-disabled {
+    color: $color-secondary-dark;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $color-secondary-darkest;
     }
   }
 }
