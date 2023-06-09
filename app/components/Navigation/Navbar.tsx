@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 import User from '@/app/components/UI/User';
+import { useState, useEffect } from 'react';
+import { usePathname, useParams } from 'next/navigation';
 
 // Things to do:
 /**
@@ -14,9 +16,29 @@ import User from '@/app/components/UI/User';
  */
 
 export default function Navbar() {
+  const [navActive, setNavActive] = useState('');
+
+  const pathname = usePathname();
+  console.log(pathname);
+
+  function navbarActiveHandler() {
+    if (pathname === '/login' || pathname === '/register') {
+      return `${styles['nav-hidden']}`;
+    }
+    return '';
+  }
+
+  useEffect(() => {
+    if (pathname === '/login' || pathname === '/register') {
+      return setNavActive(`${styles['nav-hidden']}`);
+    } else {
+      setNavActive('');
+    }
+  }, [pathname]);
+
   return (
     <>
-      <nav className={`${styles.nav}`}>
+      <nav className={`${styles.nav} ${navActive}`}>
         <div className={styles['nav-container']}>
           <Link href={'/'} className={styles['nav-container__logo']}>
             Loyalty RC
