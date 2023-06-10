@@ -25,10 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>
-          <Navbar />
-        </header>
         <Provider>
+          <header>
+            <Navbar />
+          </header>
           <ToasterContext />
           {children}
         </Provider>
