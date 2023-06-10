@@ -4,6 +4,8 @@ import Provider from '@/app/context/AuthContext';
 import ToasterContext from './context/ToasterContext';
 import Navbar from '@/app/components/Navigation/Navbar';
 
+// * Getting the url here and render the navbar according
+
 const inter = Exo({
   weight: ['100', '200', '300', '400', '500', '700'],
   style: ['normal', 'italic'],
