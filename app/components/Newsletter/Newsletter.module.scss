@@ -1,0 +1,92 @@
+@import '../../../sass/variables';
+
+.newsletter {
+  font-size: 1.6rem;
+  margin-bottom: 6rem;
+  padding: $sides-padding-md;
+
+  &-container {
+    max-width: $md;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 1094px) {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+  }
+
+  .newsletter-hl {
+    width: 100%;
+    height: 0.05rem;
+
+    margin-bottom: 5rem;
+    background-color: $color-secondary-light;
+  }
+
+  &-text__container {
+    max-width: 53rem;
+
+    @media (max-width: 1094px) {
+      max-width: 100%;
+    }
+  }
+
+  &-form {
+    justify-self: end;
+    width: 48.5rem;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1094px) {
+      width: 0;
+      min-width: 100%;
+    }
+
+    &__input {
+      height: 5rem;
+      margin-bottom: 1.6rem;
+
+      border: 0.05rem solid $color-secondary-light;
+      padding: 0 2rem;
+      font-size: 1.6rem;
+      font-family: inherit;
+      outline: none;
+
+      [type='email'] {
+        text-transform: lowercase;
+      }
+    }
+  }
+}
+
+.heading-title-1 {
+  @include heading-title-1;
+}
+
+.form-text {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: $color-secondary-dark;
+}
+
+.btn-primary {
+  font-size: 1.3rem;
+  background-color: $color-secondary-darkest;
+  color: $color-white;
+  text-transform: uppercase;
+  font-weight: 300;
+  border: none;
+  height: 5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-primary-dark;
+    transition: all 0.3s;
+  }
+}

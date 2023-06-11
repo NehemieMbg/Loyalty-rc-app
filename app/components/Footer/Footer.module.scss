@@ -33,16 +33,6 @@
     @media only screen and (max-width: $tablet-sm) {
       grid-template-columns: max-content;
     }
-
-    &__link {
-      cursor: pointer;
-      transition: all 0.3s;
-
-      &:hover {
-        color: $color-primary-dark;
-        transition: all 0.3s;
-      }
-    }
   }
 
   &-hl {
@@ -53,6 +43,18 @@
     background-color: $color-secondary-dark;
     margin: 2.5rem 0;
     margin-top: 3rem;
+  }
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  color: $color-white;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $color-primary-dark;
+    transition: all 0.3s;
   }
 }
 
@@ -79,5 +81,11 @@
   &-link,
   &-link:visited {
     fill: $color-white;
+    transition: all 0.3s;
+
+    &:hover {
+      fill: $color-primary-dark;
+      transition: all 0.3s;
+    }
   }
 }

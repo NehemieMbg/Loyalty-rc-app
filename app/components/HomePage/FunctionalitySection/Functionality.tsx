@@ -22,7 +22,7 @@ function Functionality() {
 
           <div className={styles['functionality-item']}>
             <h2 className={styles['heading-title-2']}>
-              La voiture idéale selon vos attentes
+              Un service soigné, une expérience unique
             </h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
@@ -33,7 +33,9 @@ function Functionality() {
           </div>
 
           <div className={styles['functionality-item']}>
-            <h2 className={styles['heading-title-2']}>Recevez la voiture</h2>
+            <h2 className={styles['heading-title-2']}>
+              Une réception conforme à vos attentes
+            </h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatibus placeat recusandae quam labore suscipit impedit

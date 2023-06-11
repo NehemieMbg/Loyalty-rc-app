@@ -3,22 +3,9 @@
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 import User from '@/app/components/UI/User';
-import { useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
-
-// Things to do:
-/**
- * 1- get params from url
- * 2- remove the nav bar from the login page and register page.
- * 5- fix the loading from the login page when the inputs are empty.
- *
- *
- */
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
-  const router = useRouter();
-  const [navActive, setNavActive] = useState('');
-
   const pathname = usePathname();
   const showNav = pathname !== '/login' && pathname !== '/register';
 
