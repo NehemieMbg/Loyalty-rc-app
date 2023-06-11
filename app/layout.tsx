@@ -3,6 +3,7 @@ import { Exo } from 'next/font/google';
 import Provider from '@/app/context/AuthContext';
 import ToasterContext from './context/ToasterContext';
 import Navbar from '@/app/components/Navigation/Navbar';
+import Footer from './components/Footer/Footer';
 
 // * Getting the url here and render the navbar according
 
@@ -23,16 +24,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Provider>
-          <header>
-            <Navbar />
-          </header>
-          <ToasterContext />
-          {children}
-        </Provider>
-      </body>
-    </html>
+    <>
+      <html lang="en">
+        <body>
+          <Provider>
+            <header>
+              <Navbar />
+            </header>
+            <ToasterContext />
+            {children}
+          </Provider>
+          <footer>
+            <Footer />
+          </footer>
+        </body>
+      </html>
+    </>
   );
 }

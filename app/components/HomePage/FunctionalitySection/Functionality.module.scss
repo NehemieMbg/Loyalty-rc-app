@@ -1,0 +1,44 @@
+@import '../../../../sass/variables';
+@import '../../../../sass/typography';
+
+.heading-title-1 {
+  @include heading-title-1;
+  //   @media only screen and (max-width: $tablet-sm) {
+  //     text-align: center;
+  //   }
+}
+
+.heading-title-2 {
+  @include heading-title-2;
+}
+
+.functionality-section {
+  max-width: 149.7rem;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+  padding: $sides-padding-md;
+}
+
+.functionality-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, max-content));
+  grid-auto-rows: max-content;
+  gap: 2rem;
+
+  @media only screen and (max-width: $tablet-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.functionality-item {
+  p {
+    font-size: 1.6rem;
+  }
+
+  h2,
+  p {
+    @media only screen and (max-width: $tablet-sm) {
+      text-align: justify;
+    }
+  }
+}

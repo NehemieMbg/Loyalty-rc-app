@@ -41,3 +41,55 @@ $laptop-xs: 1024px;
 $laptop-sm: 1256px;
 $laptop-md: 1440px;
 $laptop-lg: 1920px;
+
+// Typography
+
+@mixin heading-title-1 {
+  line-height: 1;
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+
+  @media only screen and (max-width: $tablet-md) {
+    font-size: 3.2rem;
+  }
+
+  @media only screen and (max-width: $tablet-xs) {
+    font-size: 3rem;
+  }
+
+  @media only screen and (max-width: $mobile-lg) {
+    font-size: 2.8rem;
+  }
+}
+
+@mixin heading-title-2 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: $color-primary-dark;
+
+  @media only screen and (max-width: $tablet-md) {
+    font-size: 2.2rem;
+  }
+
+  @media only screen and (max-width: $tablet-xs) {
+    font-size: 2rem;
+  }
+}
+
+@mixin heading-title-3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: $color-secondary-dark;
+}
+
+@mixin heading-title-4 {
+  font-size: 2.6rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+@mixin text-highlight {
+  font-weight: 500;
+  color: $color-black;
+}

@@ -12,14 +12,15 @@ function Hero() {
           height={2160}
           width={3840}
           className={styles['hero-image']}
+          alt="bmw m4 yellow"
         />
         <div className={styles['hero-text__container']}>
           <h1 className={`${styles['hero-heading']} ${styles['item-1']}`}>
-            Rent Your Dream Sport Car
+            Des voitures d'exception à votre service.
           </h1>
           <p className={`${styles['hero-text']} ${styles['item-2']}`}>
-            We deliver across Lille. Unlimited mileage, additional drivers and
-            insurance.
+            Livraison dans toute la région de Lille. Conducteurs supplémentaires
+            et assurance inclus.
           </p>
         </div>
       </div>
