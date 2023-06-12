@@ -68,7 +68,7 @@ function isFirstNameValid(firstName: string) {
   return hasValidFirstName;
 }
 
-function isEmailValid(email: string) {
+export function isEmailValid(email: string) {
   const hasValidEmail = {
     hasError: false,
     message: '',

@@ -19,8 +19,9 @@
   }
 
   .newsletter-hl {
-    width: 100%;
+    max-width: $md;
     height: 0.05rem;
+    margin: 0 auto;
 
     margin-bottom: 5rem;
     background-color: $color-secondary-light;
@@ -50,7 +51,7 @@
       height: 5rem;
       margin-bottom: 1.6rem;
 
-      border: 0.05rem solid $color-secondary-light;
+      border: 0.05rem solid $color-secondary-darkest;
       padding: 0 2rem;
       font-size: 1.6rem;
       font-family: inherit;
@@ -88,5 +89,17 @@
     cursor: pointer;
     background-color: $color-primary-dark;
     transition: all 0.3s;
+  }
+}
+
+.text-highlight:link,
+.text-highlight:visited {
+  color: $color-black;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $color-primary-dark;
+    transition: all 0.2s;
   }
 }
