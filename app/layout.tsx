@@ -1,10 +1,13 @@
 import '../sass/_global.scss';
 import { Exo } from 'next/font/google';
-import Provider from '@/app/context/AuthContext';
+import AuthProvider from '@/app/context/AuthContext';
 import ToasterContext from './context/ToasterContext';
 import Navbar from '@/app/components/Navigation/Navbar';
 import Footer from './components/Footer/Footer';
 import Newsletter from './components/Newsletter/Newsletter';
+import Menu from './components/Navigation/Menu';
+import ReduxProvider from './components/Provider/Provider';
+import Backdrop from '@/app/components/Backdrop/Backdrop';
 
 // * Getting the url here and render the navbar according
 
@@ -28,17 +31,21 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body>
-          <Provider>
-            <header>
-              <Navbar />
-            </header>
-            <ToasterContext />
-            {children}
-            <Newsletter />
-            <footer>
-              <Footer />
-            </footer>
-          </Provider>
+          <AuthProvider>
+            <ReduxProvider>
+              <Backdrop />
+              <header>
+                <Navbar />
+                <Menu />
+              </header>
+              <ToasterContext />
+              <main>{children}</main>
+              <Newsletter />
+              <footer>
+                <Footer />
+              </footer>
+            </ReduxProvider>
+          </AuthProvider>
         </body>
       </html>
     </>

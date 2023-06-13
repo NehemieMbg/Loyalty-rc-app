@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const Instagram = (props) => {
   return (
     <a
-      href="https://www.instagram.com/loyalty.rc/"
+      href="https://www.instagram.com/loyalty_rc/"
       target="_blank"
       className={props.className}
     >

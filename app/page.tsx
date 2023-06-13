@@ -9,15 +9,13 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
   return (
     <>
-      <main>
-        <Hero />
-        <Functionality />
-        {/* <h1>Home</h1>
+      <Hero />
+      <Functionality />
+      {/* <h1>Home</h1>
         <h1>Server Side Rendered</h1>
         <pre>{JSON.stringify(session)}</pre>
         <h1>Client Side Rendered</h1>
         <User /> */}
-      </main>
     </>
   );
 }

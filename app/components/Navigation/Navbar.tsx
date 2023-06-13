@@ -4,8 +4,15 @@ import Link from 'next/link';
 import styles from './Navbar.module.scss';
 import User from '@/app/components/UI/User';
 import { usePathname } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { openMenu, closeMenu } from '@/app/store/navigation-slice';
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+  const menuIsOpen = useSelector((state) => state.navigation.menuIsActive);
+  const session = useSession();
+
   const pathname = usePathname();
   const showNav = pathname !== '/login' && pathname !== '/register';
 
@@ -35,14 +42,19 @@ export default function Navbar() {
 
             <div className={styles['nav-menu-container']}>
               <Link
-                href={'login'}
+                href={`${
+                  session?.status === 'authenticated' ? '/account' : '/login'
+                }`}
                 className={styles['nav-menu-container__user-link']}
               >
                 <User className={styles['nav-menu-container__user-icon']} />
               </Link>
               <div className={styles['nav-menu-container__vl']}></div>
 
-              <div className={styles['nav-menu-container__menu-btn']}>
+              <div
+                className={styles['nav-menu-container__menu-btn']}
+                onClick={() => dispatch(openMenu())}
+              >
                 <p>Menu</p>
                 <div
                   className={styles['nav-menu-container__menu-btn-hamburger']}

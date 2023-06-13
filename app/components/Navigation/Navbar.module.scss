@@ -171,21 +171,21 @@
     }
 
     &::before {
-      transform: translateY(-0.7rem);
+      transform: translateY(-0.5rem);
     }
 
     &::after {
-      transform: translateY(0.7rem);
+      transform: translateY(0.5rem);
     }
 
     @media only screen and (max-width: $laptop-sm) {
-      &::before {
-        transform: translateY(-0.6rem);
-      }
+      // &::before {
+      //   transform: translateY(-0.6rem);
+      // }
 
-      &::after {
-        transform: translateY(0.6rem);
-      }
+      // &::after {
+      //   transform: translateY(0.6rem);
+      // }
     }
   }
 

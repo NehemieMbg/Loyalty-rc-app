@@ -3,7 +3,7 @@
 import ConnectUser from '@/app/components/logins/ConnectUser';
 import styles from './login.module.scss';
 import Link from 'next/link';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { successPopUp, errorPopUp } from '@/app/components/UI/SuccessPopUp';
 import { useRef, useEffect } from 'react';
@@ -35,7 +35,7 @@ export default function Login() {
     }
   });
 
-  async function loginUser(event) {
+  async function loginUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     try {
