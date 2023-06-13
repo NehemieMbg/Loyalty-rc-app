@@ -2,18 +2,26 @@
 
 .hero-section {
   top: 0;
-  height: 75vh;
+  height: calc(100vh - 7rem);
   width: 100%;
   margin-bottom: 6rem;
+
+  @media only screen and (max-width: $tablet-xs) {
+    height: calc(100vh - 6.5rem);
+  }
 }
 
 .hero-image {
   position: absolute;
   z-index: -1;
-  height: 75vh;
+  height: calc(100vh - 7rem);
   width: 100%;
   object-fit: cover;
   object-position: center;
+
+  @media only screen and (max-width: $tablet-xs) {
+    height: calc(100vh - 6.5rem);
+  }
 }
 
 .hero-text__container {
@@ -34,7 +42,8 @@
 
 .hero-heading {
   color: $color-white;
-  font-size: 6rem;
+  font-size: 9rem;
+  max-width: 100rem;
   font-weight: 400;
   line-height: 1;
   width: 100%;
@@ -42,15 +51,19 @@
   margin-bottom: 0.5rem;
 
   @media only screen and (max-width: $laptop-sm) {
-    font-size: 5.6rem;
+    font-size: 9.6rem;
+  }
+
+  @media only screen and (max-width: $laptop-sm) {
+    font-size: 8.6rem;
   }
 
   @media only screen and (max-width: $laptop-xs) {
-    font-size: 5.4rem;
+    font-size: 7.4rem;
   }
 
   @media only screen and (max-width: $tablet-xs) {
-    font-size: 4.4rem;
+    font-size: 5.6rem;
     text-align: end;
   }
 }

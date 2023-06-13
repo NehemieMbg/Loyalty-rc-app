@@ -13,6 +13,33 @@
   transition: all 0.5s;
 }
 
+.options-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+
+  @media screen and (max-width: $laptop-sm) {
+    grid-template-columns: 40% 1fr;
+  }
+
+  @media screen and (max-width: $laptop-xs) {
+    grid-template-columns: 50% 1fr;
+  }
+
+  @media screen and (max-width: $tablet-md) {
+    grid-template-columns: 60% 1fr;
+  }
+
+  @media screen and (max-width: $tablet-sm) {
+    grid-template-columns: 75% 1fr;
+  }
+
+  @media screen and (max-width: $tablet-xs) {
+    grid-template-columns: 100% 1fr;
+  }
+}
+
 .menu-active {
   position: fixed;
   display: block;
@@ -22,37 +49,17 @@
   left: 0;
   // background-color: blue;
   z-index: 100;
-  transition: all 0.5s ease-out;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .menu-container {
   background-color: $color-white;
   height: 100%;
-  max-width: 38%;
+  max-width: 100%;
 
   display: flex;
   align-items: center;
   padding: 0 2.5vw;
-
-  @media screen and (max-width: $laptop-sm) {
-    max-width: 40%;
-  }
-
-  @media screen and (max-width: $laptop-xs) {
-    max-width: 50%;
-  }
-
-  @media screen and (max-width: $tablet-md) {
-    max-width: 60%;
-  }
-
-  @media screen and (max-width: $tablet-sm) {
-    max-width: 75%;
-  }
-
-  @media screen and (max-width: $tablet-xs) {
-    max-width: 100%;
-  }
 }
 
 .menu-close {

@@ -8,6 +8,7 @@ $color-primary-darkest: #295fc8;
 
 $color-secondary: #f1f1f1;
 $color-secondary-light: #dadada;
+$color-secondary-dark-light: #505050;
 $color-secondary-dark: #505050;
 $color-secondary-darkest: #232323;
 
@@ -66,7 +67,7 @@ $laptop-lg: 1920px;
 @mixin heading-title-2 {
   font-size: 2.4rem;
   font-weight: 500;
-  color: $color-primary-dark;
+  color: $color-secondary-darkest;
 
   @media only screen and (max-width: $tablet-md) {
     font-size: 2.2rem;
