@@ -35,24 +35,25 @@ function Fleet(props) {
   const dispatch = useDispatch();
 
   return (
-    <div className={`${props.className} ${styles['fleet-container']}`}>
-      <div className={styles['fleet-menu-options']}>
-        <p
-          className={styles['menu-close']}
-          onClick={() => {
-            dispatch(closeMenu());
-            dispatch(closeFleetMenu());
-          }}
-        >
-          <span className={styles['menu-close__icon']}>&times;</span>
-        </p>
-        <p
-          className={styles['fleet-return-menu']}
-          onClick={() => dispatch(closeFleetMenu())}
-        >
-          <span>&larr;</span> <span>Nos Véhicules</span>
-        </p>
-      </div>
+    // <div className={`${props.className} ${styles['fleet-container']}`}>
+    //   <div className={styles['fleet-menu-options']}>
+    //     <p
+    //       className={styles['menu-close']}
+    //       onClick={() => {
+    //         dispatch(closeMenu());
+    //         dispatch(closeFleetMenu());
+    //       }}
+    //     >
+    //       <span className={styles['menu-close__icon']}>&times;</span>
+    //     </p>
+    //     <p
+    //       className={styles['fleet-return-menu']}
+    //       onClick={() => dispatch(closeFleetMenu())}
+    //     >
+    //       <span>&larr;</span> <span>Nos Véhicules</span>
+    //     </p>
+    //   </div>
+    <>
       <ul className={styles['fleet-list']}>
         {DUMMY_DATA.map((item) => {
           return (
@@ -76,7 +77,8 @@ function Fleet(props) {
           );
         })}
       </ul>
-    </div>
+    </>
+    // </div>
   );
 }
 

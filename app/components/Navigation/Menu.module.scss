@@ -126,23 +126,32 @@
     transition: all 0.3s;
   }
 }
+.active {
+  background-color: $color-secondary;
+}
 
-.fleet-container {
+.menus-container {
   position: absolute;
 
   visibility: 0;
   width: max-content;
-  left: -150rem;
-  transition: left 0.8s;
+  left: -50rem;
+  transition: all 0.8s ease-out;
   z-index: 2;
+
+  @media screen and (max-width: $tablet-sm) {
+    transition-delay: 0.2s;
+    left: -120rem;
+    width: 0;
+  }
 }
 
-.fleet-container-active {
+.menus-container-active {
   visibility: visible;
   position: relative;
   left: 0;
   width: 100%;
-  transition: left 0.8s;
+  transition: left 0.5s;
   z-index: 2;
 
   @media screen and (max-width: $tablet-sm) {

@@ -12,6 +12,7 @@ import {
 import Fleet from './Fleet/Fleet';
 
 import styles from './Menu.module.scss';
+import MenusContainer from './MenusContainer/MenusContainer';
 
 function Menu() {
   const dispatch = useDispatch();
@@ -65,9 +66,10 @@ function Menu() {
             <ul className={styles['menu-list']}>
               <li className={styles['menu-list__link']}>
                 <h2
-                  className={styles['list-quick-link']}
+                  className={`${styles['list-quick-link']} ${
+                    fleetOpen ? styles.active : ''
+                  }`}
                   onClick={() => {
-                    console.log('hi');
                     dispatch(openFleetMenu());
                   }}
                 >
@@ -79,21 +81,21 @@ function Menu() {
               <li className={styles['menu-list__link']}>
                 <Link href={'services'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>Service Inclus</span>{' '}
-                  <span className={styles['item-2']}>&rarr;</span>
+                  {/* <span className={styles['item-2']}>&rarr;</span> */}
                 </Link>
               </li>
 
               <li className={styles['menu-list__link']}>
-                <Link href={'/'} className={styles['list-quick-link']}>
+                <Link href={'about'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>À Propos</span>{' '}
-                  <span className={styles['item-2']}>&rarr;</span>
+                  {/* <span className={styles['item-2']}>&rarr;</span> */}
                 </Link>
               </li>
 
               <li className={styles['menu-list__link']}>
-                <Link href={'/'} className={styles['list-quick-link']}>
+                <Link href={'blog'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>Le Journal</span>{' '}
-                  <span className={styles['item-2']}>&rarr;</span>
+                  {/* <span className={styles['item-2']}>&rarr;</span> */}
                 </Link>
               </li>
 
@@ -106,13 +108,13 @@ function Menu() {
             </ul>
           </div>
 
-          <Fleet
-            className={`${styles['fleet-container']} ${
-              fleetOpen ? styles['fleet-container-active'] : ''
+          <MenusContainer
+            className={`${styles['menus-container']} ${
+              fleetOpen ? styles['menus-container-active'] : ''
             }`}
           >
-            hey
-          </Fleet>
+            <Fleet />
+          </MenusContainer>
         </div>
       </div>
     </>
