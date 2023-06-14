@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import styles from './Fleet.module.scss';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { closeFleetMenu } from '@/app/store/fleet-navigation-slice';
 
 const DUMMY_DATA = [
   {
@@ -29,28 +31,37 @@ const DUMMY_DATA = [
 ];
 
 function Fleet(props) {
+  const dispatch = useDispatch();
+
   return (
     <div className={`${props.className} ${styles['fleet-container']}`}>
+      <div className={styles['fleet-menu-options']}>
+        <p
+          className={styles['fleet-return-menu']}
+          onClick={() => dispatch(closeFleetMenu())}
+        >
+          <span>&larr;</span> <span>Menu</span>
+        </p>
+      </div>
       <ul className={styles['fleet-list']}>
         {DUMMY_DATA.map((item) => {
           return (
-            <li key={item.id} className={styles['car-preview']}>
-              <Image
-                src={item.images[0]}
-                width={2650}
-                height={2190}
-                alt={item.name}
-                className={styles['car-image']}
-              />
-              <div className={styles['car-text__contaienr']}>
-                <h2 className={styles['car-name']}>{item.name}</h2>
-                <Link
-                  href={`collection/${item.id}`}
-                  className={styles['car-btn']}
-                >
-                  En savoir +
-                </Link>
-              </div>
+            <li key={item.id}>
+              <Link
+                href={`collection/${item.id}`}
+                className={`${styles['car-btn']} ${styles['car-preview']}`}
+              >
+                <Image
+                  src={item.images[0]}
+                  width={2650}
+                  height={2190}
+                  alt={item.name}
+                  className={styles['car-image']}
+                />
+                <div className={styles['car-text__contaienr']}>
+                  <h2 className={styles['car-name']}>{item.name}</h2>
+                </div>
+              </Link>
             </li>
           );
         })}

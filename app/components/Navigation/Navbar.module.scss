@@ -5,8 +5,8 @@
   width: 100%;
   z-index: 5;
   // padding: $sides-padding-md;
-  background-color: $color-secondary-darkest;
-  color: $color-white;
+  background-color: $color-white;
+  color: $color-black;
   backdrop-filter: blur(2rem);
   // border-bottom: 0.1rem solid $color-secondary-light;
 }
@@ -41,7 +41,7 @@
     &:link,
     &:visited {
       text-decoration: none;
-      color: $color-white;
+      color: inherit;
     }
 
     @media only screen and (max-width: $laptop-xs) {
@@ -70,7 +70,7 @@
     transition: all 0.3s;
 
     &:hover {
-      background-color: $color-secondary-dark;
+      background-color: $color-secondary;
       transition: all 0.3s;
     }
   }
@@ -81,6 +81,7 @@
     width: 3rem;
     margin: auto 0;
     line-height: 1;
+    color: $color-black;
 
     @media only screen and (max-width: $laptop-sm) {
       height: 2.1rem;
@@ -98,14 +99,14 @@
     border-radius: 0.4rem;
 
     &:hover {
-      background-color: $color-secondary-dark;
+      background-color: $color-secondary;
       transition: all 0.3s;
     }
   }
 
   // * Hamburger button
   &__menu-btn-hamburger {
-    background-color: $color-white;
+    background-color: $color-black;
     height: 0.08rem;
     width: 1.8rem;
     display: block;
@@ -119,7 +120,7 @@
       position: absolute;
       width: 2rem;
       height: 0.08rem;
-      background-color: $color-white;
+      background-color: $color-black;
     }
 
     &::before {
@@ -140,7 +141,6 @@
   &__menu-btn:hover &__menu-btn-hamburger::before,
   &__menu-btn:hover &__menu-btn-hamburger::after,
   &__menu-btn:hover &__menu-btn-hamburger {
-    background-color: $color-white;
     transition: all 0.3s;
   }
 }

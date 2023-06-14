@@ -17,10 +17,10 @@
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 40% 1fr;
+  grid-template-columns: 33% 35%;
 
   @media screen and (max-width: $laptop-sm) {
-    grid-template-columns: 40% 1fr;
+    grid-template-columns: 40% 45;
   }
 
   @media screen and (max-width: $laptop-xs) {
@@ -48,7 +48,7 @@
 
   left: 0;
   // background-color: blue;
-  z-index: 100;
+  z-index: 1000;
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -56,6 +56,7 @@
   background-color: $color-white;
   height: 100%;
   max-width: 100%;
+  z-index: 5;
 
   display: flex;
   align-items: center;
@@ -119,4 +120,20 @@
     background-color: $color-secondary;
     transition: all 0.3s;
   }
+}
+
+.fleet-container {
+  position: absolute;
+  width: 60%;
+  left: -100%;
+  transition: all 0.8s;
+  z-index: 2;
+}
+
+.fleet-container-active {
+  position: relative;
+  left: 0;
+  width: 100%;
+  transition: all 0.8s;
+  z-index: 2;
 }

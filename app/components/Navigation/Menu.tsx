@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeMenu } from '@/app/store/navigation-slice';
+import { openFleetMenu } from '@/app/store/fleet-navigation-slice';
 import Fleet from './Fleet/Fleet';
 
 import styles from './Menu.module.scss';
@@ -11,19 +12,37 @@ import styles from './Menu.module.scss';
 function Menu() {
   const dispatch = useDispatch();
   const menuIsOpen = useSelector((state) => state.navigation.menuIsActive);
+  const fleetMenuOpen = useSelector(
+    (state) => state.fleetNavigation.fleetMenuActive
+  );
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [fleetOpen, setFleetOpen] = useState(false);
 
   useEffect(() => {
     if (menuIsOpen) {
+      if (fleetMenuOpen) setFleetOpen(false);
       setMenuOpen(true);
       document.body.style.overflow = 'hidden';
     }
+    if (menuIsOpen && fleetMenuOpen) {
+      setFleetOpen(true);
+    }
+
     if (!menuIsOpen) {
       setMenuOpen(false);
+      setFleetOpen(false);
       document.body.style.overflow = 'auto';
     }
-  }, [menuIsOpen]);
+
+    if (!fleetMenuOpen) {
+      setFleetOpen(false);
+    }
+  }, [menuIsOpen, fleetMenuOpen]);
+
+  // function openFleet() {
+  //   setFleetOpen(true);
+  // }
 
   return (
     <>
@@ -34,9 +53,7 @@ function Menu() {
           <div className={styles['menu-container']}>
             <button
               className={styles['menu-close']}
-              onClick={() => {
-                dispatch(closeMenu());
-              }}
+              onClick={() => dispatch(closeMenu())}
             >
               <span className={styles['menu-close__icon']}>&times;</span>{' '}
               <span>fermer</span>
@@ -44,7 +61,13 @@ function Menu() {
 
             <ul className={styles['menu-list']}>
               <li className={styles['menu-list__link']}>
-                <h2 className={styles['list-quick-link']}>
+                <h2
+                  className={styles['list-quick-link']}
+                  onClick={() => {
+                    console.log('hi');
+                    dispatch(openFleetMenu());
+                  }}
+                >
                   <span className={styles['item-1']}>Nos Véhicules</span>{' '}
                   <span className={styles['item-2']}>&rarr;</span>
                 </h2>
@@ -80,7 +103,13 @@ function Menu() {
             </ul>
           </div>
 
-          <Fleet className={styles['fleet-container']}>hey</Fleet>
+          <Fleet
+            className={`${styles['fleet-container']} ${
+              fleetOpen ? styles['fleet-container-active'] : ''
+            }`}
+          >
+            hey
+          </Fleet>
         </div>
       </div>
     </>
