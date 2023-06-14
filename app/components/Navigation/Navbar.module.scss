@@ -2,12 +2,17 @@
 
 // * Containe all (parent)
 .nav {
-  padding: $sides-padding-md;
-  background-color: $color-white;
-  border-bottom: 0.1rem solid $color-secondary-light;
+  width: 100%;
+  z-index: 5;
+  // padding: $sides-padding-md;
+  background-color: $color-secondary-darkest;
+  color: $color-white;
+  backdrop-filter: blur(2rem);
+  // border-bottom: 0.1rem solid $color-secondary-light;
 }
 
 .nav-container {
+  padding: $sides-padding-md;
   display: grid;
   max-width: $md;
   margin: 0 auto;
@@ -28,13 +33,15 @@
   &__logo {
     grid-column: 2 / 3;
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 500;
     justify-self: center;
+    text-transform: uppercase;
+    font-style: italic;
 
     &:link,
     &:visited {
       text-decoration: none;
-      color: $color-black;
+      color: $color-white;
     }
 
     @media only screen and (max-width: $laptop-xs) {
@@ -53,7 +60,7 @@
     max-width: max-content;
     justify-self: end;
     text-decoration: none;
-    color: $color-black;
+    color: $color-white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,7 +70,7 @@
     transition: all 0.3s;
 
     &:hover {
-      background-color: $color-secondary;
+      background-color: $color-secondary-dark;
       transition: all 0.3s;
     }
   }
@@ -91,14 +98,14 @@
     border-radius: 0.4rem;
 
     &:hover {
-      background-color: $color-secondary;
+      background-color: $color-secondary-dark;
       transition: all 0.3s;
     }
   }
 
   // * Hamburger button
   &__menu-btn-hamburger {
-    background-color: $color-black;
+    background-color: $color-white;
     height: 0.08rem;
     width: 1.8rem;
     display: block;
@@ -112,7 +119,7 @@
       position: absolute;
       width: 2rem;
       height: 0.08rem;
-      background-color: $color-black;
+      background-color: $color-white;
     }
 
     &::before {
@@ -133,7 +140,7 @@
   &__menu-btn:hover &__menu-btn-hamburger::before,
   &__menu-btn:hover &__menu-btn-hamburger::after,
   &__menu-btn:hover &__menu-btn-hamburger {
-    background-color: $color-secondary-dark-light;
+    background-color: $color-white;
     transition: all 0.3s;
   }
 }
