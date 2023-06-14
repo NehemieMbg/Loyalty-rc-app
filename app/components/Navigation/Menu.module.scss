@@ -17,27 +17,27 @@
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 33% 35%;
+  grid-template-columns: 33% 33%;
+
+  @media screen and (max-width: $laptop-md) {
+    grid-template-columns: 43% 43%;
+  }
 
   @media screen and (max-width: $laptop-sm) {
-    grid-template-columns: 40% 45;
+    grid-template-columns: 45% 50%;
   }
 
   @media screen and (max-width: $laptop-xs) {
     grid-template-columns: 50% 1fr;
   }
 
-  @media screen and (max-width: $tablet-md) {
-    grid-template-columns: 60% 1fr;
-  }
-
   @media screen and (max-width: $tablet-sm) {
-    grid-template-columns: 75% 1fr;
+    grid-template-columns: 1fr 0;
   }
 
-  @media screen and (max-width: $tablet-xs) {
-    grid-template-columns: 100% 1fr;
-  }
+  // @media screen and (max-width: $tablet-xs) {
+  //   grid-template-columns: 100% 1fr;
+  // }
 }
 
 .menu-active {
@@ -50,6 +50,11 @@
   // background-color: blue;
   z-index: 1000;
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media screen and (max-width: $tablet-sm) {
+    position: absolute;
+    z-index: 8;
+  }
 }
 
 .menu-container {
@@ -124,16 +129,29 @@
 
 .fleet-container {
   position: absolute;
-  width: 60%;
-  left: -100%;
-  transition: all 0.8s;
+
+  visibility: 0;
+  width: max-content;
+  left: -150rem;
+  transition: left 0.8s;
   z-index: 2;
 }
 
 .fleet-container-active {
+  visibility: visible;
   position: relative;
   left: 0;
   width: 100%;
-  transition: all 0.8s;
+  transition: left 0.8s;
   z-index: 2;
+
+  @media screen and (max-width: $tablet-sm) {
+    position: fixed;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    // grid-column: 1 / 2;
+    // grid-row: 1 / 2;
+    z-index: 10;
+  }
 }

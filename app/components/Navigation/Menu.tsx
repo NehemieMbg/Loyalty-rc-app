@@ -4,7 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeMenu } from '@/app/store/navigation-slice';
-import { openFleetMenu } from '@/app/store/fleet-navigation-slice';
+import {
+  openFleetMenu,
+  closeFleetMenu,
+} from '@/app/store/fleet-navigation-slice';
+
 import Fleet from './Fleet/Fleet';
 
 import styles from './Menu.module.scss';
@@ -40,10 +44,6 @@ function Menu() {
     }
   }, [menuIsOpen, fleetMenuOpen]);
 
-  // function openFleet() {
-  //   setFleetOpen(true);
-  // }
-
   return (
     <>
       <div
@@ -53,10 +53,13 @@ function Menu() {
           <div className={styles['menu-container']}>
             <button
               className={styles['menu-close']}
-              onClick={() => dispatch(closeMenu())}
+              onClick={() => {
+                dispatch(closeMenu());
+                dispatch(closeFleetMenu());
+              }}
             >
               <span className={styles['menu-close__icon']}>&times;</span>{' '}
-              <span>fermer</span>
+              <span>Fermer</span>
             </button>
 
             <ul className={styles['menu-list']}>

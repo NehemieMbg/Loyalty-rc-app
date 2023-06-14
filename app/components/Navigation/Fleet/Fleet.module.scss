@@ -6,9 +6,9 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  z-index: 50;
+  z-index: 10;
   color: $color-white;
-  scroll-snap-type: y mandatory;
+
   scrollbar-width: none;
   background-color: $color-black;
 }
@@ -51,10 +51,22 @@
 
 .car-name {
   z-index: 25;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   text-shadow: 0 0 1rem $color-secondary-darkest;
   font-weight: 400;
   padding: 1.5rem;
+
+  @media screen and (max-width: $laptop-xs) {
+    font-size: 2.4rem;
+  }
+
+  @media screen and (max-width: $tablet-md) {
+    font-size: 2.2rem;
+  }
+
+  @media screen and (max-width: $tablet-sm) {
+    font-size: 2rem;
+  }
 }
 
 .car-btn:link,
@@ -65,12 +77,31 @@
 
 .fleet-menu-options {
   padding: 2.5rem;
+  padding-bottom: 0;
+  font-size: 1.8rem;
   display: flex;
+  align-items: center;
   justify-content: end;
+
+  @media screen and (max-width: $tablet-sm) {
+    font-size: 1.6rem;
+    justify-content: space-between;
+  }
+}
+
+.menu-close {
+  display: none;
+  cursor: pointer;
+  font-size: 4.5rem;
+  font-weight: 100;
+  line-height: 0;
+
+  @media screen and (max-width: $tablet-sm) {
+    display: block;
+  }
 }
 
 .fleet-return-menu {
-  font-size: 1.8rem;
   cursor: pointer;
   width: max-content;
   padding: 0.5rem 1rem;

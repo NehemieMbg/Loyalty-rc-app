@@ -5,6 +5,7 @@ import styles from './Fleet.module.scss';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { closeFleetMenu } from '@/app/store/fleet-navigation-slice';
+import { closeMenu } from '@/app/store/navigation-slice';
 
 const DUMMY_DATA = [
   {
@@ -37,10 +38,19 @@ function Fleet(props) {
     <div className={`${props.className} ${styles['fleet-container']}`}>
       <div className={styles['fleet-menu-options']}>
         <p
+          className={styles['menu-close']}
+          onClick={() => {
+            dispatch(closeMenu());
+            dispatch(closeFleetMenu());
+          }}
+        >
+          <span className={styles['menu-close__icon']}>&times;</span>
+        </p>
+        <p
           className={styles['fleet-return-menu']}
           onClick={() => dispatch(closeFleetMenu())}
         >
-          <span>&larr;</span> <span>Menu</span>
+          <span>&larr;</span> <span>Nos Véhicules</span>
         </p>
       </div>
       <ul className={styles['fleet-list']}>
@@ -65,22 +75,6 @@ function Fleet(props) {
             </li>
           );
         })}
-
-        {/* <li key={DUMMY_DATA[0].id} className={styles['car-preview']}>
-          <Image
-            src={DUMMY_DATA[0].images[0]}
-            width={2650}
-            height={2190}
-            alt={DUMMY_DATA[0].name}
-            className={styles['car-image']}
-          />
-          <div className={styles['car-text__contaienr']}>
-            <h2 className={styles['car-name']}>{DUMMY_DATA[0].name}</h2>
-            <Link href={`collection`} className={styles['car-btn']}>
-              Pour en savoir +.
-            </Link>
-          </div>
-        </li> */}
       </ul>
     </div>
   );
