@@ -14,6 +14,7 @@ function MenusContainer(props) {
     dispatch(closeAccountMenu());
     dispatch(closeFleetMenu());
   }
+
   return (
     <>
       <div className={`${props.className} ${styles['menus-container']}`}>

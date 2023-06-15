@@ -106,7 +106,7 @@ function Menu() {
               <li className={styles['menu-list__link']}>
                 <h2
                   className={`${styles['list-quick-link']} ${
-                    fleetOpen ? styles.active : ''
+                    fleetMenuOpen ? styles.active : ''
                   }`}
                   onClick={() => {
                     openFleetMenuHandler();
@@ -140,7 +140,9 @@ function Menu() {
 
               <li className={styles['menu-list__link']}>
                 <h2
-                  className={styles['list-quick-link']}
+                  className={`${styles['list-quick-link']} ${
+                    accountIsOpen ? styles.active : ''
+                  }`}
                   onClick={() => {
                     openAccountMenuHandler();
                   }}
@@ -159,7 +161,7 @@ function Menu() {
             messages={fleetOpen ? 'Nos Véhicules' : 'Mon Compte'}
           >
             {fleetOpen && <Fleet />}
-            {accountMenuOpen && <Account />}
+            {accountMenuOpen && <Account closeMenu={closeMenuHanlder} />}
           </MenusContainer>
         </div>
       </div>
