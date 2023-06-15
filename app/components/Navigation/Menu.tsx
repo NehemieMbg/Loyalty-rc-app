@@ -8,11 +8,16 @@ import {
   openFleetMenu,
   closeFleetMenu,
 } from '@/app/store/fleet-navigation-slice';
+import {
+  openAccountMenu,
+  closeAccountMenu,
+} from '@/app/store/account-navigation-slice';
 
 import Fleet from './Fleet/Fleet';
 
 import styles from './Menu.module.scss';
 import MenusContainer from './MenusContainer/MenusContainer';
+import Account from './Account/Account';
 
 function Menu() {
   const dispatch = useDispatch();
@@ -20,30 +25,65 @@ function Menu() {
   const fleetMenuOpen = useSelector(
     (state) => state.fleetNavigation.fleetMenuActive
   );
+  const accountIsOpen = useSelector(
+    (state) => state.accountNavigation.accountMenuActive
+  );
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [fleetOpen, setFleetOpen] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
+  const [menusContainerOpen, setMenusContainerOpen] = useState(false);
 
   useEffect(() => {
     if (menuIsOpen) {
-      if (fleetMenuOpen) setFleetOpen(false);
-      setMenuOpen(true);
+      if (!menuOpen) setMenuOpen(true);
+
       document.body.style.overflow = 'hidden';
-    }
-    if (menuIsOpen && fleetMenuOpen) {
-      setFleetOpen(true);
+
+      if (fleetMenuOpen && !accountIsOpen) {
+        setAccountMenuOpen(false);
+        setFleetOpen(true);
+        setMenusContainerOpen(true);
+      }
+
+      if (accountIsOpen && !fleetMenuOpen) {
+        setFleetOpen(false);
+        setAccountMenuOpen(true);
+        setMenusContainerOpen(true);
+      }
+
+      if (!fleetMenuOpen && !accountIsOpen) setMenusContainerOpen(false);
     }
 
     if (!menuIsOpen) {
       setMenuOpen(false);
       setFleetOpen(false);
+      setAccountMenuOpen(false);
+      setMenusContainerOpen(false);
       document.body.style.overflow = 'auto';
     }
+  }, [menuIsOpen, fleetMenuOpen, accountIsOpen]);
 
-    if (!fleetMenuOpen) {
-      setFleetOpen(false);
-    }
-  }, [menuIsOpen, fleetMenuOpen]);
+  function openAccountMenuHandler() {
+    // if (!menuIsOpen || accountIsOpen) return;
+    // if (fleetMenuOpen) dispatch(closeFleetMenu());
+    dispatch(closeFleetMenu());
+    dispatch(openAccountMenu());
+  }
+
+  function openFleetMenuHandler() {
+    // if (!menuIsOpen || fleetMenuOpen) return;
+    // if (accountIsOpen) dispatch(closeAccountMenu());
+    dispatch(closeAccountMenu());
+    dispatch(openFleetMenu());
+  }
+
+  function closeMenuHanlder() {
+    // if (!fleetMenuOpen && !accountIsOpen) return;
+    dispatch(closeMenu());
+    dispatch(closeAccountMenu());
+    dispatch(closeFleetMenu());
+  }
 
   return (
     <>
@@ -55,8 +95,7 @@ function Menu() {
             <button
               className={styles['menu-close']}
               onClick={() => {
-                dispatch(closeMenu());
-                dispatch(closeFleetMenu());
+                closeMenuHanlder();
               }}
             >
               <span className={styles['menu-close__icon']}>&times;</span>{' '}
@@ -70,7 +109,7 @@ function Menu() {
                     fleetOpen ? styles.active : ''
                   }`}
                   onClick={() => {
-                    dispatch(openFleetMenu());
+                    openFleetMenuHandler();
                   }}
                 >
                   <span className={styles['item-1']}>Nos Véhicules</span>{' '}
@@ -100,7 +139,12 @@ function Menu() {
               </li>
 
               <li className={styles['menu-list__link']}>
-                <h2 className={styles['list-quick-link']}>
+                <h2
+                  className={styles['list-quick-link']}
+                  onClick={() => {
+                    openAccountMenuHandler();
+                  }}
+                >
                   <span className={styles['item-1']}>Mon Compte</span>{' '}
                   <span className={styles['item-2']}>&rarr;</span>
                 </h2>
@@ -110,10 +154,12 @@ function Menu() {
 
           <MenusContainer
             className={`${styles['menus-container']} ${
-              fleetOpen ? styles['menus-container-active'] : ''
+              menusContainerOpen ? styles['menus-container-active'] : ''
             }`}
+            messages={fleetOpen ? 'Nos Véhicules' : 'Mon Compte'}
           >
-            <Fleet />
+            {fleetOpen && <Fleet />}
+            {accountMenuOpen && <Account />}
           </MenusContainer>
         </div>
       </div>
@@ -122,3 +168,31 @@ function Menu() {
 }
 
 export default Menu;
+
+// if (menuIsOpen || fleetMenuOpen) {
+//   setFleetOpen(true);
+// }
+
+// if (menuIsOpen && accountIsOpen) {
+//   setAccountMenuOpen(true);
+// }
+
+// if (menuIsOpen) {
+//   if (fleetMenuOpen || accountIsOpen) {
+//     setMenusContainerOpen(true);
+//   }
+
+//   // if (!fleetMenuOpen && !accountIsOpen) {
+//   //   setMenusContainerOpen(false);
+//   // }
+// }
+
+// if (!fleetMenuOpen) {
+//   setFleetOpen(false);
+// }
+
+// if (!accountIsOpen) {
+//   setAccountMenuOpen(false);
+// }
+
+// console.log(accountMenuOpen);

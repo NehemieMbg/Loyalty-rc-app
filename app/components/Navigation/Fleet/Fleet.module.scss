@@ -1,25 +1,10 @@
 @import '../../../../sass/variables';
 
-// .fleet-container {
-//   overflow-y: auto;
-//   scrollbar-width: none;
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
-//   z-index: 10;
-//   color: $color-white;
-
-//   scrollbar-width: none;
-//   background-color: $color-black;
-// }
-
 .fleet-list {
   padding: 2.5rem;
   width: calc(100% - 5rem);
   list-style: none;
   display: grid;
-  //   grid-template-columns: max-content;
-  //   grid-template-rows: max-content;
   gap: 2rem;
 }
 
@@ -74,43 +59,3 @@
   text-decoration: none;
   color: inherit;
 }
-
-// .fleet-menu-options {
-//   padding: 2.5rem;
-//   padding-bottom: 0;
-//   font-size: 1.8rem;
-//   display: flex;
-//   align-items: center;
-//   justify-content: end;
-
-//   @media screen and (max-width: $tablet-sm) {
-//     font-size: 1.6rem;
-//     justify-content: space-between;
-//   }
-// }
-
-// .menu-close {
-//   display: none;
-//   cursor: pointer;
-//   font-size: 4.5rem;
-//   font-weight: 100;
-//   line-height: 0;
-
-//   @media screen and (max-width: $tablet-sm) {
-//     display: block;
-//   }
-// }
-
-// .fleet-return-menu {
-//   cursor: pointer;
-//   width: max-content;
-//   padding: 0.5rem 1rem;
-//   display: flex;
-//   gap: 0.5rem;
-//   transition: gap 0.3s;
-
-//   &:hover {
-//     gap: 1.5rem;
-//     transition: gap 0.3s;
-//   }
-// }

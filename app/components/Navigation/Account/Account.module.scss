@@ -1,0 +1,36 @@
+@import '../../../../sass/variables.scss';
+
+.menu-account-container {
+  padding: 2.5rem;
+  height: calc(100vh - 10.9rem);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content);
+  gap: 2rem;
+}
+
+.to-connect-btn:link,
+.to-connect-btn:visited {
+  font-size: 1.8rem;
+  text-align: center;
+  //   justify-self: start;
+  padding: 1.2rem 2.5rem;
+  border-radius: 0.4rem;
+  background-color: $color-primary-dark;
+  text-decoration: none;
+  color: $color-white;
+  transition: all 0.3s;
+
+  &:hover {
+    transition: all 0.3s;
+    background-color: $color-secondary-darkest;
+  }
+}
+
+.to-register-btn:link,
+.to-register-btn:visited {
+  //   text-decoration: none;
+  color: $color-white;
+  font-weight: 400;
+}

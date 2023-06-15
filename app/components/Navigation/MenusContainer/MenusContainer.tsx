@@ -5,9 +5,15 @@ import styles from './MenusContainer.module.scss';
 import { useDispatch } from 'react-redux';
 import { closeFleetMenu } from '@/app/store/fleet-navigation-slice';
 import { closeMenu } from '@/app/store/navigation-slice';
+import { closeAccountMenu } from '@/app/store/account-navigation-slice';
 
 function MenusContainer(props) {
   const dispatch = useDispatch();
+
+  function closeReturnMenuHandler() {
+    dispatch(closeAccountMenu());
+    dispatch(closeFleetMenu());
+  }
   return (
     <>
       <div className={`${props.className} ${styles['menus-container']}`}>
@@ -23,9 +29,9 @@ function MenusContainer(props) {
           </p>
           <p
             className={styles['return-menus']}
-            onClick={() => dispatch(closeFleetMenu())}
+            onClick={() => closeReturnMenuHandler()}
           >
-            <span>&larr;</span> <span>Nos Véhicules</span>
+            <span>&larr;</span> <span>{props.messages}</span>
           </p>
         </div>
 

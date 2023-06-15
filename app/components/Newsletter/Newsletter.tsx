@@ -76,15 +76,15 @@ function Newsletter() {
                 className={styles['newsletter-form__input']}
                 ref={emailRef}
               />
-              <button className={styles['btn-primary']}>Subscribe</button>
+              <button className={styles['btn-primary']}>Continuer</button>
               <p className={styles['form-text']}>
-                By sharing your email. You agree to our{' '}
+                En partageant votre adresse e-mail, vous consentez à nos{' '}
                 <Link href={'terms'} className={styles['text-highlight']}>
-                  terms of use
+                  conditions d'utilisation
                 </Link>{' '}
-                and{' '}
+                et à notre{' '}
                 <Link href={'privacy'} className={styles['text-highlight']}>
-                  privacy
+                  politique de confidentialité.
                 </Link>
               </p>
               {emailError !== '' && <ErrorMessage message={emailError} />}
