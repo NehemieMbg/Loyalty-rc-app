@@ -4,10 +4,10 @@
   background-color: $color-black;
   color: $color-white;
   font-size: 1.6rem;
+  padding: $sides-padding-md;
 
   &-container {
     margin: 0 auto;
-    padding: $sides-padding-md;
     padding-top: 4rem;
     padding-bottom: 3rem;
     max-width: 149.7rem;

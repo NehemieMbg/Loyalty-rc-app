@@ -12,14 +12,19 @@
   @include heading-title-2;
 }
 
+.functionality-container {
+  width: 100%;
+  height: 100%;
+  padding: $sides-padding-md;
+}
+
 .functionality-section {
   max-width: 149.7rem;
   margin: 0 auto;
   margin-bottom: 6rem;
-  padding: $sides-padding-md;
 }
 
-.functionality-container {
+.functionality-subcontainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, max-content));
   grid-auto-rows: max-content;

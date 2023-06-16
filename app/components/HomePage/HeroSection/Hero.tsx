@@ -14,14 +14,16 @@ function Hero() {
           className={styles['hero-image']}
           alt="bmw m4 yellow"
         />
-        <div className={styles['hero-text__container']}>
-          <h1 className={`${styles['hero-heading']} ${styles['item-1']}`}>
-            Des voitures d'exception à votre service.
-          </h1>
-          <p className={`${styles['hero-text']} ${styles['item-2']}`}>
-            Livraison dans toute la région de Lille. Conducteurs supplémentaires
-            et assurance inclus.
-          </p>
+        <div className={styles.subcontainer}>
+          <div className={styles['hero-text__container']}>
+            <h1 className={`${styles['hero-heading']} ${styles['item-1']}`}>
+              Des voitures d'exception à votre service.
+            </h1>
+            <p className={`${styles['hero-text']} ${styles['item-2']}`}>
+              Livraison dans toute la région de Lille. Conducteurs
+              supplémentaires et assurance inclus.
+            </p>
+          </div>
         </div>
       </div>
     </>

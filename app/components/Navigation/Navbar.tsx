@@ -13,7 +13,8 @@ export default function Navbar() {
   const session = useSession();
 
   const pathname = usePathname();
-  const showNav = pathname !== '/login' && pathname !== '/register';
+  const showNav =
+    pathname !== '/login' && pathname !== '/register' && pathname !== '/admin';
 
   return (
     <>

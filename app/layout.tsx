@@ -30,23 +30,25 @@ export default function RootLayout({
   return (
     <>
       <html lang="en">
-        <body>
-          <AuthProvider>
-            <ReduxProvider>
-              <Backdrop />
+        <AuthProvider>
+          <ReduxProvider>
+            <body>
               <header>
                 <Navbar />
                 <Menu />
+                <Backdrop />
               </header>
-              <ToasterContext />
-              <main>{children}</main>
-              <Newsletter />
+              <main>
+                <ToasterContext />
+                {children}
+              </main>
               <footer>
+                <Newsletter />
                 <Footer />
               </footer>
-            </ReduxProvider>
-          </AuthProvider>
-        </body>
+            </body>
+          </ReduxProvider>
+        </AuthProvider>
       </html>
     </>
   );

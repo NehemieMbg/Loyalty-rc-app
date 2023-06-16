@@ -4,15 +4,15 @@
 .nav {
   width: 100%;
   z-index: 5;
-  // padding: $sides-padding-md;
+  padding: $sides-padding-md;
   background-color: $color-white;
   color: $color-black;
   backdrop-filter: blur(2rem);
-  // border-bottom: 0.1rem solid $color-secondary-light;
+  border-bottom: 0.1rem solid $color-secondary-light;
 }
 
 .nav-container {
-  padding: $sides-padding-md;
+  // padding: $sides-padding-md;
   display: grid;
   max-width: $md;
   margin: 0 auto;

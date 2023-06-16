@@ -1,0 +1,40 @@
+@import '../../../sass/variables.scss';
+
+.collection-admin {
+  max-width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-name {
+  font-size: 2.6rem;
+  font-weight: 300;
+}
+
+.add-car {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: $color-secondary-light;
+    transition: all 0.2s;
+  }
+}
+
+.add-car-logo {
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 100;
+}

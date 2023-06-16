@@ -11,11 +11,6 @@ export default async function Home() {
     <>
       <Hero />
       <Functionality />
-      {/* <h1>Home</h1>
-        <h1>Server Side Rendered</h1>
-        <pre>{JSON.stringify(session)}</pre>
-        <h1>Client Side Rendered</h1>
-        <User /> */}
     </>
   );
 }
