@@ -1,22 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import styles from './not-found.module.scss';
-import Newsletter from './components/Newsletter/Newsletter';
 
 export default function NotFound() {
-  const router = useRouter();
   return (
     <>
-      <div className={styles['test']}>
-        {/* {router.push('/')} */}
-        <h2>Not Found</h2>
-        <p>Could not find requested resource</p>
-        <p>
-          View <Link href="/">all posts</Link>
-        </p>
-        <Newsletter />
+      <div className={styles['not-found']}>
+        <div className={styles['not-found-container']}>
+          <h1 className={styles['not-found-code']}>404</h1>
+
+          <div className={styles['not-found__message-container']}>
+            <p className={styles['not-found-message']}>Page introuvable</p>
+            <Link href="/" className={styles['not-found-link']}>
+              Retour à la page d'accueil
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );

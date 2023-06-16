@@ -7,7 +7,6 @@
   background-color: rgb(32, 32, 32);
   padding: 2.5rem 1.5rem;
   font-size: 1.6rem;
-  border-right: 0.1rem solid $color-secondary-dark;
 }
 
 .email {
@@ -30,10 +29,15 @@
   gap: 0.5rem;
 }
 
-.navbar-list__link {
+.navbar-list__link:link,
+.navbar-list__link:visited {
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+  width: 100%;
 
   &:hover {
     background-color: $color-secondary-dark;

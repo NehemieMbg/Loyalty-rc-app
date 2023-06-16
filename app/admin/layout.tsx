@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar/Navbar';
+import '../../sass/_global.scss';
 
 export default function AdmindLayout({
   children,
@@ -7,10 +8,10 @@ export default function AdmindLayout({
 }) {
   return (
     <>
-      <header>
+      <div className="admin">
         <Navbar />
-      </header>
-      <main>{children}</main>
+        <div className="admin-main">{children}</div>
+      </div>
     </>
   );
 }
