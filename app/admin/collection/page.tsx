@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CollectionAdmin.module.scss';
+import Link from 'next/link';
 
 const DUMMY_DATA = [
   {
@@ -52,10 +53,10 @@ function CollectionAdmin() {
       <div className={styles.nav}>
         <h2 className={styles['page-name']}>Collection</h2>
         <div>
-          <button className={styles['add-car']}>
+          <Link href={'/admin/edit-car'} className={styles['add-car']}>
             <span className={styles['add-car-logo']}>+</span>{' '}
             <p>Ajouté un véhicule</p>
-          </button>
+          </Link>
         </div>
       </div>
       <div></div>
