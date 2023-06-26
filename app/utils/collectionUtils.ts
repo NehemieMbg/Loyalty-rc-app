@@ -2,6 +2,7 @@ export async function getCollection() {
   try {
     const response = await fetch('/api/collection', {
       method: 'GET',
+      cache: 'no-store',
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -15,3 +16,12 @@ export async function getCollection() {
     console.error('Error', error);
   }
 }
+
+export const getCarData = async (paramsId: string) => {
+  const data = await getCollection();
+  console.log(
+    'From utils: ',
+    data.filter((car: { id: string }) => car.id === paramsId)
+  );
+  return data.filter((car: { id: string }) => car.id === paramsId);
+};

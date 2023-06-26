@@ -1,11 +1,15 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import styles from './CollectionForm.module.scss';
 import { errorPopUp, successPopUp } from '@/app/components/UI/SuccessPopUp';
 import { clearInuputs } from '@/app/utils/formUtils';
 import Link from 'next/link';
+import { getCarData } from '@/app/utils/collectionUtils';
+import { useParams } from 'next/navigation';
 
-function CollectionForm() {
+function CollectionForm(props: any) {
+  console.log(props.carData);
+
   const [imagesArr, setImagesArr] = useState([] as string[]);
   const makeRef = useRef<HTMLInputElement>(null);
   const modelRef = useRef<HTMLInputElement>(null);
@@ -29,6 +33,8 @@ function CollectionForm() {
   const driverExperienceRef = useRef<HTMLInputElement>(null);
   const depositRef = useRef<HTMLInputElement>(null);
 
+  console.log('Props Car Data: ', props.carData);
+
   function addImagesHandler(event: React.FormEvent) {
     event.preventDefault();
 
@@ -47,10 +53,9 @@ function CollectionForm() {
   async function addCar(event: React.FormEvent) {
     event.preventDefault();
 
-    console.log('hi1');
     try {
       const response = await fetch('/api/collection', {
-        method: 'POST',
+        method: props.method, // method passed through props (POST or PUT)
         body: JSON.stringify({
           make: makeRef.current?.value,
           model: modelRef.current?.value,
@@ -76,8 +81,6 @@ function CollectionForm() {
         }),
         headers: { 'Content-Type': 'application/json' },
       });
-
-      console.log(response);
 
       if (!response.ok) {
         if (!response.ok) {
@@ -449,9 +452,6 @@ function CollectionForm() {
           >
             Sauvegarder
           </button>
-          {/* <button className={`${styles.btn} ${styles['btn-cancel']}`}>
-            Annuler
-          </button> */}
         </div>
       </form>
     </div>

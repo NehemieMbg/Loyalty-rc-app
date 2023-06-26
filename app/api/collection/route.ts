@@ -61,7 +61,6 @@ export async function POST(request: Request, response: NextResponse) {
 export async function GET() {
   try {
     const data = await prisma.collection.findMany();
-    console.log(data);
     return new NextResponse(JSON.stringify(data), { status: 200 });
   } catch (error) {
     console.error(error);

@@ -1,76 +1,46 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import styles from './Fleet.module.scss';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { closeFleetMenu } from '@/app/store/fleet-navigation-slice';
 import { closeMenu } from '@/app/store/navigation-slice';
+import { getCollection } from '@/app/utils/collectionUtils';
 
-const DUMMY_DATA = [
-  {
-    id: 1,
-    name: 'Mercedes-Benz AMG GT',
-    images: [
-      'https://img.jamesedition.com/listing_images/2022/10/07/13/48/01/e3f414a2-bcbd-48db-af28-6b15564a0605/je/1900xxs.jpg',
-    ],
-  },
-  {
-    id: 2,
-    name: 'Ferrari SF90',
-    images: [
-      'https://firebasestorage.googleapis.com/v0/b/loyalty-rc-1686132645566.appspot.com/o/car-images%2F2018_lamborghini_centenrio%2Fcar-posing-front-side.webp?alt=media&token=82dc22e3-d229-4ee7-a4e9-08521f27015f',
-    ],
-  },
-  {
-    id: 3,
-    name: 'Alfa Romeo Giulia GTAm',
-    images: [
-      'https://img.jamesedition.com/listing_images/2022/09/16/14/52/11/596aa919-2761-48a2-b80b-d7da5b8c1c8a/je/1900xxs.jpg',
-    ],
-  },
-];
-
-function Fleet(props) {
+function Fleet() {
+  const [collectionList, setCollectionList] = useState([]);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    async function fetchData() {
+      setCollectionList(await getCollection());
+    }
+    fetchData();
+  }, []);
+
   return (
-    // <div className={`${props.className} ${styles['fleet-container']}`}>
-    //   <div className={styles['fleet-menu-options']}>
-    //     <p
-    //       className={styles['menu-close']}
-    //       onClick={() => {
-    //         dispatch(closeMenu());
-    //         dispatch(closeFleetMenu());
-    //       }}
-    //     >
-    //       <span className={styles['menu-close__icon']}>&times;</span>
-    //     </p>
-    //     <p
-    //       className={styles['fleet-return-menu']}
-    //       onClick={() => dispatch(closeFleetMenu())}
-    //     >
-    //       <span>&larr;</span> <span>Nos Véhicules</span>
-    //     </p>
-    //   </div>
     <>
       <ul className={styles['fleet-list']}>
-        {DUMMY_DATA.map((item) => {
+        {collectionList.map((car) => {
           return (
-            <li key={item.id}>
+            <li key={car.id}>
               <Link
-                href={`collection/${item.id}`}
+                href={`collection/${car.id}`}
                 className={`${styles['car-btn']} ${styles['car-preview']}`}
               >
                 <Image
-                  src={item.images[0]}
+                  src={car.images[0]}
                   width={2650}
                   height={2190}
-                  alt={item.name}
+                  alt={`${car.year} ${car.make} ${car.model}`}
                   className={styles['car-image']}
                 />
                 <div className={styles['car-text__contaienr']}>
-                  <h2 className={styles['car-name']}>{item.name}</h2>
+                  <h2
+                    className={styles['car-name']}
+                  >{`${car.make} ${car.model}`}</h2>
                 </div>
               </Link>
             </li>
@@ -78,7 +48,6 @@ function Fleet(props) {
         })}
       </ul>
     </>
-    // </div>
   );
 }
 
