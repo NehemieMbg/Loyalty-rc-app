@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CollectionAdmin.module.scss';
 import Link from 'next/link';
+import { getCollection } from '@/app/utils/collectionUtils';
 
 const DUMMY_DATA = [
   {
@@ -52,23 +53,28 @@ const DUMMY_DATA = [
 function CollectionAdmin() {
   const [collectionList, setCollectionList] = useState();
 
-  async function getCollection() {
-    const response = await fetch('/api/collection', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });
+  // async function getCollection() {
+  //   const response = await fetch('/api/collection', {
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
+  //   });
 
-    if (response.ok) {
-      const data = await response.json(); // Parse the response body as JSON
-      console.log(data); // Access and use the data
-    } else {
-      console.log('Error: ' + response.status);
-    }
-  }
+  //   if (response.ok) {
+  //     const data = await response.json(); // Parse the response body as JSON
+  //     console.log(data); // Access and use the data
+  //   } else {
+  //     console.log('Error: ' + response.status);
+  //   }
+  // }
 
   useEffect(() => {
-    getCollection();
+    const fetchData = async () => {
+      setCollectionList(await getCollection());
+    };
+    fetchData();
   }, []);
+
+  console.log('collection list', collectionList);
 
   return (
     <div className={styles['collection-admin']}>

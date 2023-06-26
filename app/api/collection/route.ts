@@ -59,7 +59,12 @@ export async function POST(request: Request, response: NextResponse) {
 }
 
 export async function GET() {
-  const data = await prisma.collection.findMany();
-  console.log(data);
-  NextResponse.json(JSON.stringify(data), { status: 200 });
+  try {
+    const data = await prisma.collection.findMany();
+    console.log(data);
+    return new NextResponse(JSON.stringify(data), { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return new NextResponse('An error occurred', { status: 500 });
+  }
 }
