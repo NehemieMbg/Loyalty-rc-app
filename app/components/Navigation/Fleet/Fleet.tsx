@@ -19,7 +19,7 @@ const DUMMY_DATA = [
     id: 2,
     name: 'Ferrari SF90',
     images: [
-      'https://img.jamesedition.com/listing_images/2023/03/17/14/03/08/0bfa8c0a-8e5d-406f-b6d2-6e2ea88438c0/je/1900xxs.jpg',
+      'https://firebasestorage.googleapis.com/v0/b/loyalty-rc-1686132645566.appspot.com/o/car-images%2F2018_lamborghini_centenrio%2Fcar-posing-front-side.webp?alt=media&token=82dc22e3-d229-4ee7-a4e9-08521f27015f',
     ],
   },
   {

@@ -1,5 +1,5 @@
 type Input = {
-  inputs?: React.RefObject<HTMLInputElement>[];
+  inputs?: any[];
 };
 
 type CheckInputsFieldsType = {

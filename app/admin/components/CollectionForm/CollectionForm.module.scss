@@ -2,8 +2,114 @@
 
 .form-container {
   color: $color-white;
+  margin-left: 32rem;
 }
 
-.form-group__make {
-  color: red;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    &:not(:last-child) {
+      font-weight: 200;
+    }
+  }
+
+  &__input {
+    max-width: 60rem;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    color: $color-white;
+    background-color: inherit;
+    border: none;
+    border: 0.15rem solid $color-secondary-dark;
+    border-radius: 0.5rem;
+    outline: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.form-group-container {
+  margin-bottom: 5rem;
+}
+
+.drivers-info {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.8rem 2.5rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: $color-white;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+
+  &-save {
+    background-color: $color-primary-dark;
+
+    &:hover {
+      background-color: $color-primary-darkest;
+      transition: all 0.3s;
+    }
+  }
+
+  &-cancel {
+    background-color: $color-secondary-darkest;
+
+    &:hover {
+      background-color: $color-black;
+      transition: all 0.3s;
+    }
+  }
+}
+
+.btn-add {
+  color: $color-black;
+  align-self: start;
+  margin-top: 0.5rem;
+  &:hover {
+    background-color: $color-black;
+    color: $color-white;
+  }
+}
+
+.images-link__container {
+  list-style: none;
+}
+
+.images-link-list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
+}
+
+.remove-link {
+  font-weight: 100;
+  font-size: 2.5rem;
+  line-height: 1;
 }

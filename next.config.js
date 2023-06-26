@@ -6,7 +6,13 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'app', 'styles')],
   },
   images: {
-    domains: ['img.jamesedition.com', 'www.hdcarwallpapers.com'],
+    domains: [
+      'img.jamesedition.com',
+      'www.hdcarwallpapers.com',
+      'www.dropbox.com',
+      'drive.google.com',
+      'firebasestorage.googleapis.com',
+    ],
   },
 };
 

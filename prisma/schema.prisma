@@ -48,3 +48,28 @@ model Newsletter {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+model Collection {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  make             String?
+  model            String?
+  year             String?
+  engine           String?
+  maxPower         String?
+  topSpeed         String?
+  acceleration     String?
+  transmission     String?
+  images           String[]
+  about            String?
+  dayPrice         String?
+  weekPrice        String?
+  weekEndPrice     String?
+  monToSunPrice    String?
+  dayKm            String?
+  weekKm           String?
+  weekEndKm        String?
+  monToSunKm       String?
+  driverAge        String?
+  driverExperience String?
+  deposit          String?
+}
