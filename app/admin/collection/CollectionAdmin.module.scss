@@ -2,12 +2,15 @@
 
 .collection-admin {
   max-width: 100%;
+  min-height: calc(100vh - 5rem);
   color: $color-white;
+  margin-left: 30rem;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 4.5rem;
 }
 
 .page-name {

@@ -57,3 +57,9 @@ export async function POST(request: Request, response: NextResponse) {
 
   return new NextResponse('Voiture ajouté à la collection', { status: 200 });
 }
+
+export async function GET() {
+  const data = await prisma.collection.findMany();
+  console.log(data);
+  NextResponse.json(JSON.stringify(data), { status: 200 });
+}
