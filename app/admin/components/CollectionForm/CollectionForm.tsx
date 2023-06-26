@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import styles from './CollectionForm.module.scss';
 import { errorPopUp, successPopUp } from '@/app/components/UI/SuccessPopUp';
 import { clearInuputs } from '@/app/utils/formUtils';
+import Link from 'next/link';
 
 function CollectionForm() {
   const [imagesArr, setImagesArr] = useState([] as string[]);
@@ -40,63 +41,43 @@ function CollectionForm() {
   }
 
   function removeImageHandler(index: number) {
-    console.log(index);
     setImagesArr(imagesArr.filter((image, idx) => idx !== index));
   }
 
   async function addCar(event: React.FormEvent) {
     event.preventDefault();
 
-    const make = makeRef.current?.value;
-    const model = modelRef.current?.value;
-    const year = yearRef.current?.value;
-    const engine = engineRef.current?.value;
-    const maxPower = maxPowerRef.current?.value;
-    const topSpeed = topSpeedRef.current?.value;
-    const acceleration = accelerationRef.current?.value;
-    const transmission = transmissionRef.current?.value;
-    const images = imagesArr;
-    const about = aboutRef.current?.value;
-    const dayPrice = dayPriceRef.current?.value;
-    const weekPrice = weekPriceRef.current?.value;
-    const weekEndPrice = weekEndPriceRef.current?.value;
-    const monToSunPrice = monToSunPriceRef.current?.value;
-    const dayKm = dayKmRef.current?.value;
-    const weekKm = weekKmRef.current?.value;
-    const weekEndKm = weekEndKmRef.current?.value;
-    const monToSunKm = monToSunKmRef.current?.value;
-    const driverAge = driverAgeRef.current?.value;
-    const driverExperience = driverExperienceRef.current?.value;
-    const deposit = depositRef.current?.value;
-
+    console.log('hi1');
     try {
       const response = await fetch('/api/collection', {
         method: 'POST',
         body: JSON.stringify({
-          make,
-          model,
-          year,
-          engine,
-          maxPower,
-          topSpeed,
-          acceleration,
-          transmission,
-          images,
-          about,
-          dayPrice,
-          weekPrice,
-          weekEndPrice,
-          monToSunPrice,
-          dayKm,
-          weekKm,
-          weekEndKm,
-          monToSunKm,
-          driverAge,
-          driverExperience,
-          deposit,
+          make: makeRef.current?.value,
+          model: modelRef.current?.value,
+          year: yearRef.current?.value,
+          engine: engineRef.current?.value,
+          maxPower: maxPowerRef.current?.value,
+          topSpeed: topSpeedRef.current?.value,
+          acceleration: accelerationRef.current?.value,
+          transmission: transmissionRef.current?.value,
+          images: imagesArr,
+          about: aboutRef.current?.value,
+          dayPrice: dayPriceRef.current?.value,
+          weekPrice: weekPriceRef.current?.value,
+          weekEndPrice: weekEndPriceRef.current?.value,
+          monToSunPrice: monToSunPriceRef.current?.value,
+          dayKm: dayKmRef.current?.value,
+          weekKm: weekKmRef.current?.value,
+          weekEndKm: weekEndKmRef.current?.value,
+          monToSunKm: monToSunKmRef.current?.value,
+          driverAge: driverAgeRef.current?.value,
+          driverExperience: driverExperienceRef.current?.value,
+          deposit: depositRef.current?.value,
         }),
         headers: { 'Content-Type': 'application/json' },
       });
+
+      console.log(response);
 
       if (!response.ok) {
         if (!response.ok) {
@@ -105,37 +86,42 @@ function CollectionForm() {
           errorPopUp("Une erreur s'est produite");
           throw new Error(error);
         }
-
-        setImagesArr([] as string[]);
-        makeRef.current!.value = '';
-        modelRef.current!.value = '';
-        yearRef.current!.value = '';
-        engineRef.current!.value = '';
-        maxPowerRef.current!.value = '';
-        topSpeedRef.current!.value = '';
-        accelerationRef.current!.value = '';
-        transmissionRef.current!.value = '';
-        aboutRef.current!.value = '';
-        dayPriceRef.current!.value = '';
-        weekPriceRef.current!.value = '';
-        weekEndPriceRef.current!.value = '';
-        monToSunPriceRef.current!.value = '';
-        dayKmRef.current!.value = '';
-        weekKmRef.current!.value = '';
-        weekEndKmRef.current!.value = '';
-        monToSunKmRef.current!.value = '';
-        driverAgeRef.current!.value = '';
-        driverExperienceRef.current!.value = '';
-        depositRef.current!.value = '';
-        successPopUp(await response.text());
       }
+      successPopUp(await response.text());
     } catch (error) {
       console.error(error);
     }
+    setImagesArr([] as string[]);
+    makeRef.current!.value = '';
+    modelRef.current!.value = '';
+    yearRef.current!.value = '';
+    engineRef.current!.value = '';
+    maxPowerRef.current!.value = '';
+    topSpeedRef.current!.value = '';
+    accelerationRef.current!.value = '';
+    transmissionRef.current!.value = '';
+    imagesRef.current!.value = '';
+    aboutRef.current!.value = '';
+    dayPriceRef.current!.value = '';
+    weekPriceRef.current!.value = '';
+    weekEndPriceRef.current!.value = '';
+    monToSunPriceRef.current!.value = '';
+    dayKmRef.current!.value = '';
+    weekKmRef.current!.value = '';
+    weekEndKmRef.current!.value = '';
+    monToSunKmRef.current!.value = '';
+    driverAgeRef.current!.value = '';
+    driverExperienceRef.current!.value = '';
+    depositRef.current!.value = '';
   }
 
   return (
     <div className={styles['form-container']}>
+      <Link href={'/admin/collection'} className={styles['previous-page']}>
+        <p>
+          <span>&larr;</span> collection
+        </p>
+      </Link>
       <form action="" className={styles.form}>
         <div className={styles['form-group-container']}>
           <h1 className={styles['title']}>Véhicule</h1>

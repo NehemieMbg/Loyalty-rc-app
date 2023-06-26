@@ -5,6 +5,10 @@
   margin-left: 32rem;
 }
 
+.form {
+  margin-top: 2rem;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -112,4 +116,17 @@
   font-weight: 100;
   font-size: 2.5rem;
   line-height: 1;
+}
+
+.previous-page:link,
+.previous-page:visited {
+  text-decoration: none;
+  color: $color-white;
+  transition: all 0.2s;
+  width: max-content;
+
+  &:hover {
+    color: $color-primary-dark;
+    transition: all 0.2s;
+  }
 }

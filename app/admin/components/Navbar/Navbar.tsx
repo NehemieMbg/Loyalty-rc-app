@@ -10,7 +10,7 @@ function Navbar() {
 
       <div className={styles['navbar-container']}>
         <div className={styles['navbar-list']}>
-          <Link
+          {/* <Link
             href={'admin/dashboard'}
             className={styles['navbar-list__link']}
           >
@@ -30,7 +30,7 @@ function Navbar() {
             className={styles['navbar-list__link']}
           >
             Documents
-          </Link>
+          </Link> */}
 
           <Link
             href={'admin/collection'}
