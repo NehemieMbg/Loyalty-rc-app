@@ -1,0 +1,24 @@
+export type CollectionType = {
+  id: string;
+  make: string;
+  model: string;
+  year: string;
+  engine: string;
+  maxPower: string;
+  topSpeed: string;
+  acceleration: string;
+  transmission: string;
+  images: string[];
+  about: string;
+  dayPrice: string;
+  weekPrice: string;
+  weekEndPrice: string;
+  monToSunPrice: string;
+  dayKm: string;
+  weekKm: string;
+  weekEndKm: string;
+  monToSunKm: string;
+  driverAge: string;
+  driverExperience: string;
+  deposit: string;
+};

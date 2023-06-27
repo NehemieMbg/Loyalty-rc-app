@@ -1,8 +1,7 @@
 export async function getCollection() {
   try {
-    const response = await fetch('/api/collection', {
+    const response = await fetch('http://localhost:3000/api/collection', {
       method: 'GET',
-      cache: 'no-store',
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -19,9 +18,5 @@ export async function getCollection() {
 
 export const getCarData = async (paramsId: string) => {
   const data = await getCollection();
-  console.log(
-    'From utils: ',
-    data.filter((car: { id: string }) => car.id === paramsId)
-  );
-  return data.filter((car: { id: string }) => car.id === paramsId);
+  return data.filter((car: { id: string }) => car.id === paramsId)[0];
 };

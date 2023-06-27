@@ -4,14 +4,13 @@ import styles from './CollectionForm.module.scss';
 import { errorPopUp, successPopUp } from '@/app/components/UI/SuccessPopUp';
 import { clearInuputs } from '@/app/utils/formUtils';
 import Link from 'next/link';
-import { getCarData } from '@/app/utils/collectionUtils';
-import { useParams } from 'next/navigation';
 
 function CollectionForm(props: any) {
-  console.log(props.carData);
+  const { carData } = props;
+  console.log('Client Side: ', carData);
 
   const [imagesArr, setImagesArr] = useState([] as string[]);
-  const makeRef = useRef<HTMLInputElement>(null);
+  const makeRef = useRef<HTMLInputElement>();
   const modelRef = useRef<HTMLInputElement>(null);
   const yearRef = useRef<HTMLInputElement>(null);
   const engineRef = useRef<HTMLInputElement>(null);
@@ -33,7 +32,17 @@ function CollectionForm(props: any) {
   const driverExperienceRef = useRef<HTMLInputElement>(null);
   const depositRef = useRef<HTMLInputElement>(null);
 
-  console.log('Props Car Data: ', props.carData);
+  if (carData) {
+    makeRef.current!.value = carData.make;
+    modelRef.current!.value = carData.model;
+    yearRef.current!.value = carData.year;
+    engineRef.current!.value = carData.engine;
+    maxPowerRef.current!.value = carData.maxPower;
+    topSpeedRef.current!.value = carData.topSpeed;
+    accelerationRef.current!.value = carData.acceleration;
+    transmissionRef.current!.value = carData.transmission;
+    // setImagesArr(carData.images);
+  }
 
   function addImagesHandler(event: React.FormEvent) {
     event.preventDefault();
@@ -54,43 +63,84 @@ function CollectionForm(props: any) {
     event.preventDefault();
 
     try {
-      const response = await fetch('/api/collection', {
-        method: props.method, // method passed through props (POST or PUT)
-        body: JSON.stringify({
-          make: makeRef.current?.value,
-          model: modelRef.current?.value,
-          year: yearRef.current?.value,
-          engine: engineRef.current?.value,
-          maxPower: maxPowerRef.current?.value,
-          topSpeed: topSpeedRef.current?.value,
-          acceleration: accelerationRef.current?.value,
-          transmission: transmissionRef.current?.value,
-          images: imagesArr,
-          about: aboutRef.current?.value,
-          dayPrice: dayPriceRef.current?.value,
-          weekPrice: weekPriceRef.current?.value,
-          weekEndPrice: weekEndPriceRef.current?.value,
-          monToSunPrice: monToSunPriceRef.current?.value,
-          dayKm: dayKmRef.current?.value,
-          weekKm: weekKmRef.current?.value,
-          weekEndKm: weekEndKmRef.current?.value,
-          monToSunKm: monToSunKmRef.current?.value,
-          driverAge: driverAgeRef.current?.value,
-          driverExperience: driverExperienceRef.current?.value,
-          deposit: depositRef.current?.value,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (!response.ok) {
+      if (props.method === 'POST') {
+        const response = await fetch('/api/collection', {
+          method: 'POST', // method passed through props (POST or PUT)
+          body: JSON.stringify({
+            make: makeRef.current?.value,
+            model: modelRef.current?.value,
+            year: yearRef.current?.value,
+            engine: engineRef.current?.value,
+            maxPower: maxPowerRef.current?.value,
+            topSpeed: topSpeedRef.current?.value,
+            acceleration: accelerationRef.current?.value,
+            transmission: transmissionRef.current?.value,
+            images: imagesArr,
+            about: aboutRef.current?.value,
+            dayPrice: dayPriceRef.current?.value,
+            weekPrice: weekPriceRef.current?.value,
+            weekEndPrice: weekEndPriceRef.current?.value,
+            monToSunPrice: monToSunPriceRef.current?.value,
+            dayKm: dayKmRef.current?.value,
+            weekKm: weekKmRef.current?.value,
+            weekEndKm: weekEndKmRef.current?.value,
+            monToSunKm: monToSunKmRef.current?.value,
+            driverAge: driverAgeRef.current?.value,
+            driverExperience: driverExperienceRef.current?.value,
+            deposit: depositRef.current?.value,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        });
         if (!response.ok) {
-          const error = await response.text();
+          if (!response.ok) {
+            const error = await response.text();
 
-          errorPopUp("Une erreur s'est produite");
-          throw new Error(error);
+            errorPopUp("Une erreur s'est produite");
+            throw new Error(error);
+          }
         }
+        successPopUp(await response.text());
       }
-      successPopUp(await response.text());
+
+      if (props.method === 'PUT') {
+        const response = await fetch('/api/collection', {
+          method: 'PUT', // method passed through props (POST or PUT)
+          body: JSON.stringify({
+            carId,
+            make: makeRef.current?.value,
+            model: modelRef.current?.value,
+            year: yearRef.current?.value,
+            engine: engineRef.current?.value,
+            maxPower: maxPowerRef.current?.value,
+            topSpeed: topSpeedRef.current?.value,
+            acceleration: accelerationRef.current?.value,
+            transmission: transmissionRef.current?.value,
+            images: imagesArr,
+            about: aboutRef.current?.value,
+            dayPrice: dayPriceRef.current?.value,
+            weekPrice: weekPriceRef.current?.value,
+            weekEndPrice: weekEndPriceRef.current?.value,
+            monToSunPrice: monToSunPriceRef.current?.value,
+            dayKm: dayKmRef.current?.value,
+            weekKm: weekKmRef.current?.value,
+            weekEndKm: weekEndKmRef.current?.value,
+            monToSunKm: monToSunKmRef.current?.value,
+            driverAge: driverAgeRef.current?.value,
+            driverExperience: driverExperienceRef.current?.value,
+            deposit: depositRef.current?.value,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        if (!response.ok) {
+          if (!response.ok) {
+            const error = await response.text();
+
+            errorPopUp("Une erreur s'est produite");
+            throw new Error(error);
+          }
+        }
+        successPopUp(await response.text());
+      }
     } catch (error) {
       console.error(error);
     }
