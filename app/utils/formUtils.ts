@@ -1,15 +1,13 @@
 type Input = {
-  inputs?: any[];
+  inputs: any[];
 };
 
 type CheckInputsFieldsType = {
-  body: {
-    lastname: string;
-    firstname: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-  };
+  lastname: string;
+  firstname: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 };
 
 /**
@@ -146,7 +144,7 @@ function isConfirmPasswordValid(
     message: '',
   };
 
-  if (!hasValidPassword.hasError) {
+  if (!hasValidPassword) {
     if (password !== confirmPassword) {
       hasValidConfirmPassword.hasError = true;
       hasValidConfirmPassword.message =
@@ -165,7 +163,19 @@ function isConfirmPasswordValid(
 
 ////////////////////////////////////////////////////////////////
 export function checkInputsFields(body: CheckInputsFieldsType) {
-  const { lastname, firstname, email, password, confirmPassword } = body;
+  const {
+    lastname,
+    firstname,
+    email,
+    password,
+    confirmPassword,
+  }: {
+    lastname: string;
+    firstname: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  } = body;
 
   const hasValidLastName = isLastNameValid(lastname);
   const hasValidFirstName = isFirstNameValid(firstname);

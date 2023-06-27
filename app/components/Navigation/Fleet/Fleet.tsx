@@ -1,25 +1,12 @@
-'use client';
-
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import styles from './Fleet.module.scss';
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
-import { closeFleetMenu } from '@/app/store/fleet-navigation-slice';
-import { closeMenu } from '@/app/store/navigation-slice';
+import { useSelector } from 'react-redux';
 import { getCollection } from '@/app/utils/collectionUtils';
 
-function Fleet() {
-  const [collectionList, setCollectionList] = useState([]);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    async function fetchData() {
-      setCollectionList(await getCollection());
-    }
-    fetchData();
-  }, []);
-
+export default function Fleet(props: any) {
+  const { collectionList } = props;
   return (
     <>
       <ul className={styles['fleet-list']}>
@@ -50,5 +37,3 @@ function Fleet() {
     </>
   );
 }
-
-export default Fleet;

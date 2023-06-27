@@ -18,23 +18,46 @@ import Fleet from './Fleet/Fleet';
 import styles from './Menu.module.scss';
 import MenusContainer from './MenusContainer/MenusContainer';
 import Account from './Account/Account';
+import { getCollection } from '@/app/utils/collectionUtils';
 
 function Menu() {
   const dispatch = useDispatch();
-  const menuIsOpen = useSelector((state) => state.navigation.menuIsActive);
-  const fleetMenuOpen = useSelector(
-    (state) => state.fleetNavigation.fleetMenuActive
+  const menuIsOpen = useSelector(
+    (state: {
+      navigation: {
+        menuIsActive: boolean;
+      };
+    }) => state.navigation.menuIsActive
   );
+
+  const fleetMenuOpen = useSelector(
+    (state: {
+      fleetNavigation: {
+        fleetMenuActive: boolean;
+      };
+    }) => state.fleetNavigation.fleetMenuActive
+  );
+
   const accountIsOpen = useSelector(
-    (state) => state.accountNavigation.accountMenuActive
+    (state: {
+      accountNavigation: {
+        accountMenuActive: boolean;
+      };
+    }) => state.accountNavigation.accountMenuActive
   );
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [fleetOpen, setFleetOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [menusContainerOpen, setMenusContainerOpen] = useState(false);
+  const [collectionList, setCollectionList] = useState([]);
 
   useEffect(() => {
+    (async () => {
+      setCollectionList(await getCollection());
+    })();
+    console.log(collectionList);
+
     if (menuIsOpen) {
       if (!menuOpen) setMenuOpen(true);
 
@@ -65,21 +88,16 @@ function Menu() {
   }, [menuIsOpen, fleetMenuOpen, accountIsOpen]);
 
   function openAccountMenuHandler() {
-    // if (!menuIsOpen || accountIsOpen) return;
-    // if (fleetMenuOpen) dispatch(closeFleetMenu());
     dispatch(closeFleetMenu());
     dispatch(openAccountMenu());
   }
 
   function openFleetMenuHandler() {
-    // if (!menuIsOpen || fleetMenuOpen) return;
-    // if (accountIsOpen) dispatch(closeAccountMenu());
     dispatch(closeAccountMenu());
     dispatch(openFleetMenu());
   }
 
   function closeMenuHanlder() {
-    // if (!fleetMenuOpen && !accountIsOpen) return;
     dispatch(closeMenu());
     dispatch(closeAccountMenu());
     dispatch(closeFleetMenu());
@@ -120,21 +138,18 @@ function Menu() {
               <li className={styles['menu-list__link']}>
                 <Link href={'services'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>Service Inclus</span>{' '}
-                  {/* <span className={styles['item-2']}>&rarr;</span> */}
                 </Link>
               </li>
 
               <li className={styles['menu-list__link']}>
                 <Link href={'about'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>À Propos</span>{' '}
-                  {/* <span className={styles['item-2']}>&rarr;</span> */}
                 </Link>
               </li>
 
               <li className={styles['menu-list__link']}>
                 <Link href={'blog'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>Le Journal</span>{' '}
-                  {/* <span className={styles['item-2']}>&rarr;</span> */}
                 </Link>
               </li>
 
@@ -160,7 +175,7 @@ function Menu() {
             }`}
             messages={fleetOpen ? 'Nos Véhicules' : 'Mon Compte'}
           >
-            {fleetOpen && <Fleet />}
+            {fleetOpen && <Fleet collectionList={collectionList} />}
             {accountMenuOpen && <Account closeMenu={closeMenuHanlder} />}
           </MenusContainer>
         </div>
@@ -170,31 +185,3 @@ function Menu() {
 }
 
 export default Menu;
-
-// if (menuIsOpen || fleetMenuOpen) {
-//   setFleetOpen(true);
-// }
-
-// if (menuIsOpen && accountIsOpen) {
-//   setAccountMenuOpen(true);
-// }
-
-// if (menuIsOpen) {
-//   if (fleetMenuOpen || accountIsOpen) {
-//     setMenusContainerOpen(true);
-//   }
-
-//   // if (!fleetMenuOpen && !accountIsOpen) {
-//   //   setMenusContainerOpen(false);
-//   // }
-// }
-
-// if (!fleetMenuOpen) {
-//   setFleetOpen(false);
-// }
-
-// if (!accountIsOpen) {
-//   setAccountMenuOpen(false);
-// }
-
-// console.log(accountMenuOpen);

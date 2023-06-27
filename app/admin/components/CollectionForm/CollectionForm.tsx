@@ -2,15 +2,13 @@
 import { useRef, useState, useEffect } from 'react';
 import styles from './CollectionForm.module.scss';
 import { errorPopUp, successPopUp } from '@/app/components/UI/SuccessPopUp';
-import { clearInuputs } from '@/app/utils/formUtils';
 import Link from 'next/link';
 
 function CollectionForm(props: any) {
   const { carData } = props;
-  console.log('Client Side: ', carData);
 
   const [imagesArr, setImagesArr] = useState([] as string[]);
-  const makeRef = useRef<HTMLInputElement>();
+  const makeRef = useRef<HTMLInputElement>(null);
   const modelRef = useRef<HTMLInputElement>(null);
   const yearRef = useRef<HTMLInputElement>(null);
   const engineRef = useRef<HTMLInputElement>(null);
@@ -32,17 +30,37 @@ function CollectionForm(props: any) {
   const driverExperienceRef = useRef<HTMLInputElement>(null);
   const depositRef = useRef<HTMLInputElement>(null);
 
-  if (carData) {
-    makeRef.current!.value = carData.make;
-    modelRef.current!.value = carData.model;
-    yearRef.current!.value = carData.year;
-    engineRef.current!.value = carData.engine;
-    maxPowerRef.current!.value = carData.maxPower;
-    topSpeedRef.current!.value = carData.topSpeed;
-    accelerationRef.current!.value = carData.acceleration;
-    transmissionRef.current!.value = carData.transmission;
-    // setImagesArr(carData.images);
-  }
+  useEffect(() => {
+    if (carData) {
+      if (makeRef.current) makeRef.current.value = carData.make;
+      if (modelRef.current) modelRef.current.value = carData.model;
+      if (yearRef.current) yearRef.current.value = carData.year;
+      if (engineRef.current) engineRef.current.value = carData.engine;
+      if (maxPowerRef.current) maxPowerRef.current.value = carData.maxPower;
+      if (topSpeedRef.current) topSpeedRef.current.value = carData.topSpeed;
+      if (accelerationRef.current)
+        accelerationRef.current.value = carData.acceleration;
+      if (transmissionRef.current)
+        transmissionRef.current.value = carData.transmission;
+      setImagesArr(carData.images);
+      if (aboutRef.current) aboutRef.current.value = carData.about;
+      if (dayPriceRef.current) dayPriceRef.current.value = carData.dayPrice;
+      if (weekPriceRef.current) weekPriceRef.current.value = carData.weekPrice;
+      if (weekEndPriceRef.current)
+        weekEndPriceRef.current.value = carData.weekEndPrice;
+      if (monToSunPriceRef.current)
+        monToSunPriceRef.current.value = carData.monToSunPrice;
+      if (depositRef.current) depositRef.current.value = carData.deposit;
+      if (dayKmRef.current) dayKmRef.current.value = carData.dayKm;
+      if (weekKmRef.current) weekKmRef.current.value = carData.weekKm;
+      if (weekEndKmRef.current) weekEndKmRef.current.value = carData.weekEndKm;
+      if (monToSunKmRef.current)
+        monToSunKmRef.current.value = carData.monToSunKm;
+      if (driverAgeRef.current) driverAgeRef.current.value = carData.driverAge;
+      if (driverExperienceRef.current)
+        driverExperienceRef.current.value = carData.driverExperience;
+    }
+  }, []);
 
   function addImagesHandler(event: React.FormEvent) {
     event.preventDefault();
@@ -106,7 +124,7 @@ function CollectionForm(props: any) {
         const response = await fetch('/api/collection', {
           method: 'PUT', // method passed through props (POST or PUT)
           body: JSON.stringify({
-            carId,
+            carId: carData.id,
             make: makeRef.current?.value,
             model: modelRef.current?.value,
             year: yearRef.current?.value,
@@ -144,28 +162,30 @@ function CollectionForm(props: any) {
     } catch (error) {
       console.error(error);
     }
-    setImagesArr([] as string[]);
-    makeRef.current!.value = '';
-    modelRef.current!.value = '';
-    yearRef.current!.value = '';
-    engineRef.current!.value = '';
-    maxPowerRef.current!.value = '';
-    topSpeedRef.current!.value = '';
-    accelerationRef.current!.value = '';
-    transmissionRef.current!.value = '';
-    imagesRef.current!.value = '';
-    aboutRef.current!.value = '';
-    dayPriceRef.current!.value = '';
-    weekPriceRef.current!.value = '';
-    weekEndPriceRef.current!.value = '';
-    monToSunPriceRef.current!.value = '';
-    dayKmRef.current!.value = '';
-    weekKmRef.current!.value = '';
-    weekEndKmRef.current!.value = '';
-    monToSunKmRef.current!.value = '';
-    driverAgeRef.current!.value = '';
-    driverExperienceRef.current!.value = '';
-    depositRef.current!.value = '';
+    if (props.method === 'POST') {
+      setImagesArr([] as string[]);
+      makeRef.current!.value = '';
+      modelRef.current!.value = '';
+      yearRef.current!.value = '';
+      engineRef.current!.value = '';
+      maxPowerRef.current!.value = '';
+      topSpeedRef.current!.value = '';
+      accelerationRef.current!.value = '';
+      transmissionRef.current!.value = '';
+      imagesRef.current!.value = '';
+      aboutRef.current!.value = '';
+      dayPriceRef.current!.value = '';
+      weekPriceRef.current!.value = '';
+      weekEndPriceRef.current!.value = '';
+      monToSunPriceRef.current!.value = '';
+      dayKmRef.current!.value = '';
+      weekKmRef.current!.value = '';
+      weekEndKmRef.current!.value = '';
+      monToSunKmRef.current!.value = '';
+      driverAgeRef.current!.value = '';
+      driverExperienceRef.current!.value = '';
+      depositRef.current!.value = '';
+    }
   }
 
   return (
