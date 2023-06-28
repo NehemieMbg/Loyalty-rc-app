@@ -31,7 +31,7 @@ export default function Login() {
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
-      router.push('/');
+      router.push('/admin');
     }
   });
 

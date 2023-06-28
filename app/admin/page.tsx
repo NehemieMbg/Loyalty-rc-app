@@ -1,10 +1,19 @@
-import Navbar from './components/Navbar/Navbar';
 import React from 'react';
 import styles from './adminPage.module.scss';
-import CollectionAdmin from './collection/page';
-import Main from './components/Main';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { allowedAccess } from '../utils/usersUtils';
 
-function page() {
+async function page() {
+  // Check allowed access
+  const session: {
+    user: { name: string; email: string; image: string | null };
+  } | null = await getServerSession(authOptions as any);
+
+  const userEmail: string | undefined = session?.user.email;
+
+  await allowedAccess(session, userEmail!);
+
   return <div className={styles.amdin}></div>;
 }
 

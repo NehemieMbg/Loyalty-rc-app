@@ -31,7 +31,8 @@
 }
 
 .navbar-list__link:link,
-.navbar-list__link:visited {
+.navbar-list__link:visited,
+.logout {
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -43,4 +44,8 @@
   &:hover {
     background-color: $color-secondary-dark;
   }
+}
+
+.logout-container {
+  align-self: self-end;
 }

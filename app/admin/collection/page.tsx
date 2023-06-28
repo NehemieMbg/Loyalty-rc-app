@@ -8,7 +8,6 @@ export const revalidate = 0;
 
 export default async function Page() {
   const collectionList = await getCollection();
-  console.log('Revalidate');
 
   return (
     <div className={styles['collection-admin']}>

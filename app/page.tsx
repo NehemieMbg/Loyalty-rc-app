@@ -8,7 +8,6 @@ import { store } from '@/app/store';
 import { setCollection } from '@/app/store/collection-slice';
 
 export default async function Home() {
-  // const session = await getServerSession(authOptions);
   const req = await fetch('http://localhost:3000/api/collection');
   const data = await req.json();
   store.dispatch(setCollection(data));

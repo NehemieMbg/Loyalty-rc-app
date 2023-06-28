@@ -1,6 +1,8 @@
+'use client';
 import React from 'react';
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 function Navbar() {
   return (
@@ -44,9 +46,11 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* <div className={styles['deconnection-container']}>
-          <p>Deconnection</p>
-        </div> */}
+        <div className={styles['logout-container']}>
+          <p className={styles.logout} onClick={() => signOut()}>
+            Deconnection
+          </p>
+        </div>
       </div>
     </div>
   );
