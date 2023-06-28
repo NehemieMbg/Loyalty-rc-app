@@ -2,9 +2,13 @@ import styles from './CollectionAdmin.module.scss';
 import Link from 'next/link';
 import { getCollection } from '@/app/utils/collectionUtils';
 import { CollectionType } from '@/types/CollectionType';
+import DeleteBtn from '../components/Collection/DeleteBtn';
+
+export const revalidate = 0;
 
 export default async function Page() {
   const collectionList = await getCollection();
+  console.log('Revalidate');
 
   return (
     <div className={styles['collection-admin']}>
@@ -48,11 +52,16 @@ export default async function Page() {
                   >
                     Modifier
                   </Link>
-                  <p
+                  {/* <p
                     className={`${styles['car-list__btn']} ${styles['car-list__btn-delete']}`}
+                    // onClick={() => deleteCar(car.id)}
                   >
                     Supprimer
-                  </p>
+                  </p> */}
+                  <DeleteBtn
+                    className={`${styles['car-list__btn']} ${styles['car-list__btn-delete']}`}
+                    carId={car.id}
+                  />
                 </div>
               </div>
             </li>
