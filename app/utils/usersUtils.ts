@@ -5,7 +5,7 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 export async function getUsers() {
   try {
-    const response = await fetch(`http://localhost:3000/api/users`, {
+    const response = await fetch(`${process.env.DOMAIN_URL}api/users`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -44,8 +44,8 @@ export async function allowedAccess(
 ) {
   const user = await getUser(userEmail!);
 
-  if (!session) redirect('http://localhost:3000/login');
+  if (!session) redirect(`${process.env.DOMAIN_URL}login`);
 
   if (session && user.role !== UserRole.ADMIN)
-    redirect('http://localhost:3000/');
+    redirect(`${process.env.DOMAIN_URL}`);
 }

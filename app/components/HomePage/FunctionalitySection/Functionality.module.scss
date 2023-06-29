@@ -6,10 +6,12 @@
   //   @media only screen and (max-width: $tablet-sm) {
   //     text-align: center;
   //   }
+  margin-bottom: 6.5rem;
 }
 
 .heading-title-2 {
   @include heading-title-2;
+  margin-bottom: 1.5rem;
 }
 
 .functionality-container {
@@ -21,7 +23,7 @@
 .functionality-section {
   max-width: 149.7rem;
   margin: 0 auto;
-  margin-bottom: 6rem;
+  margin-bottom: 17.5rem;
 }
 
 .functionality-subcontainer {

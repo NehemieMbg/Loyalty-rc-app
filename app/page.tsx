@@ -11,7 +11,7 @@ import Collection from './components/Collection/Collection';
 export const revalidate = 0;
 
 export default async function Home() {
-  const req = await fetch('http://localhost:3000/api/collection');
+  const req = await fetch(`${process.env.DOMAIN_URL}api/collection`);
   const data = await req.json();
   store.dispatch(setCollection(data));
   const carData = store.getState().collection.carCollection;

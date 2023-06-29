@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Collection(props) {
   const { carCollection } = props;
-  console.log(carCollection);
+
   return (
     <div className={styles['collection-section']}>
       <div className={styles['collection-container']}>

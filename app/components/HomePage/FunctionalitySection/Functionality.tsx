@@ -13,7 +13,7 @@ function Functionality() {
           <div className={styles['functionality-subcontainer']}>
             <div className={styles['functionality-item']}>
               <h2 className={styles['heading-title-2']}>
-                Une réservation sans effort
+                Réservation sans effort
               </h2>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -25,7 +25,7 @@ function Functionality() {
 
             <div className={styles['functionality-item']}>
               <h2 className={styles['heading-title-2']}>
-                Un service soigné, une expérience unique
+                Service soigné, une expérience unique
               </h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
@@ -37,7 +37,7 @@ function Functionality() {
 
             <div className={styles['functionality-item']}>
               <h2 className={styles['heading-title-2']}>
-                Une réception conforme à vos attentes
+                Réception conforme à vos attentes
               </h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.

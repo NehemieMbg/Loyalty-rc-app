@@ -9,7 +9,7 @@ function DeleteBtn(props: { carId: string; className: string }) {
   async function deleteCar(carId: string) {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/collection/${carId}`,
+        `${process.env.DOMAIN_URL}/api/collection/${carId}`,
         {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
