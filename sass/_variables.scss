@@ -69,7 +69,7 @@ $laptop-lg: 1920px;
 @mixin heading-title-2 {
   font-size: 2.4rem;
   font-weight: 500;
-  color: $color-secondary-dark;
+  color: $color-primary-dark;
   margin-bottom: 0.5rem;
 
   @media only screen and (max-width: $tablet-md) {

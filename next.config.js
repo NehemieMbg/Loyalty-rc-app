@@ -12,6 +12,7 @@ const nextConfig = {
       'www.dropbox.com',
       'drive.google.com',
       'firebasestorage.googleapis.com',
+      'assets-v2.porsche.com',
     ],
   },
 };

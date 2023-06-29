@@ -1,6 +1,7 @@
 @import '../../sass/variables';
 
 .amdin {
-  background-color: $color-black;
+  background-color: inherit;
   display: flex;
+  min-height: calc(100vh - 4.95rem);
 }

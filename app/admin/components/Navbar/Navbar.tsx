@@ -4,11 +4,14 @@ import styles from './Navbar.module.scss';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
 
-function Navbar() {
+function Navbar(props: {
+  adminName: string | undefined;
+  adminEmail: string | undefined;
+}) {
   return (
     <div className={styles.navbar}>
-      <p className={styles.name}>Mombanga Nehemie</p>
-      <p className={styles.email}>nehemie.mbg@gmail.com</p>
+      <p className={styles.name}>{props.adminName}</p>
+      <p className={styles.email}>{props.adminEmail}</p>
 
       <div className={styles['navbar-container']}>
         <div className={styles['navbar-list']}>
