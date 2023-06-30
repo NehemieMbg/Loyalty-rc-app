@@ -14,6 +14,8 @@
   display: grid;
   grid-template-columns: minmax(10rem, 68.5rem);
   grid-template-rows: minmax(max-content, 38.5rem);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 .car-image {
@@ -40,8 +42,9 @@
   z-index: 25;
   font-size: 2.6rem;
   text-shadow: 0 0 1rem $color-secondary-darkest;
-  font-weight: 400;
+  font-weight: 600;
   padding: 1.5rem;
+  text-shadow: -1px -1px 16px rgba(0, 0, 0, 0.56);
 
   @media screen and (max-width: $laptop-xs) {
     font-size: 2.4rem;

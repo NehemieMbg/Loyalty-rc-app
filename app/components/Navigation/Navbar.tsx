@@ -7,13 +7,16 @@ import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useDispatch } from 'react-redux';
 import { openMenu } from '@/app/store/navigation-slice';
+import Logo from '@/public/images/logo.png';
+// import Image from 'next/image';
 
 export default function Navbar() {
   const dispatch = useDispatch();
   const session = useSession();
 
   const pathname = usePathname();
-  const showNav = pathname === '/';
+  const showNav = true;
+  // const showNav = pathname === '/' || pathname === '/collection/[carId]';
 
   return (
     <>
@@ -34,14 +37,36 @@ export default function Navbar() {
               Loyalty RC
             </Link>
 
-            <Link
-              href={`${
-                session?.status === 'authenticated' ? '/account' : '/login'
-              }`}
-              className={styles['nav-menu-container__user-link']}
-            >
-              <User className={styles['nav-menu-container__user-icon']} />
-            </Link>
+            <ul className={styles['list-container']}>
+              <li>
+                <Link href={'#collection'} className={styles['list-link']}>
+                  Nos Véhicules
+                </Link>
+              </li>
+
+              <li>
+                <Link href={'/services'} className={styles['list-link']}>
+                  Services Inclus
+                </Link>
+              </li>
+
+              <li>
+                <Link href={'/about'} className={styles['list-link']}>
+                  À Propos
+                </Link>
+              </li>
+
+              {/* <li>
+                <Link
+                  href={`${
+                    session?.status === 'authenticated' ? '/account' : '/login'
+                  }`}
+                  className={styles['nav-menu-container__user-link']}
+                >
+                  <User className={styles['nav-menu-container__user-icon']} />
+                </Link>
+              </li> */}
+            </ul>
           </div>
         </nav>
       )}

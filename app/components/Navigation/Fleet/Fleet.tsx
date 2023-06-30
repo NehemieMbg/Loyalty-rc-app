@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import styles from './Fleet.module.scss';
@@ -12,7 +14,7 @@ export default function Fleet(props: any) {
       <ul className={styles['fleet-list']}>
         {collectionList.map((car) => {
           return (
-            <li key={car.id}>
+            <li key={car.id} onClick={props.closeMenu}>
               <Link
                 href={`collection/${car.id}`}
                 className={`${styles['car-btn']} ${styles['car-preview']}`}

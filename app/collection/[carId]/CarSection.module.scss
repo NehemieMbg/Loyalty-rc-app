@@ -1,0 +1,26 @@
+@import '../../../sass/variables';
+
+.subcontainer {
+  padding: $sides-padding-md;
+}
+
+.return-btn-container {
+  max-width: $md;
+  margin: 2.5rem auto;
+
+  @media only screen and (max-width: 1177px) {
+    display: none;
+  }
+}
+
+.return-btn:link,
+.return-btn:visited {
+  text-decoration: none;
+  max-width: max-content;
+  color: $color-black;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}

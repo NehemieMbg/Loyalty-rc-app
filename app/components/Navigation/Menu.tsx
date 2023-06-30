@@ -153,7 +153,7 @@ function Menu() {
                 </Link>
               </li>
 
-              <li className={styles['menu-list__link']}>
+              {/* <li className={styles['menu-list__link']}>
                 <h2
                   className={`${styles['list-quick-link']} ${
                     accountIsOpen ? styles.active : ''
@@ -165,7 +165,7 @@ function Menu() {
                   <span className={styles['item-1']}>Mon Compte</span>{' '}
                   <span className={styles['item-2']}>&rarr;</span>
                 </h2>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -175,8 +175,13 @@ function Menu() {
             }`}
             messages={fleetOpen ? 'Nos Véhicules' : 'Mon Compte'}
           >
-            {fleetOpen && <Fleet collectionList={collectionList} />}
-            {accountMenuOpen && <Account closeMenu={closeMenuHanlder} />}
+            {fleetOpen && (
+              <Fleet
+                collectionList={collectionList}
+                closeMenu={closeMenuHanlder}
+              />
+            )}
+            {/* {accountMenuOpen && <Account closeMenu={closeMenuHanlder} />} */}
           </MenusContainer>
         </div>
       </div>

@@ -12,7 +12,9 @@
 
 .heading-title-1 {
   @include heading-title-1;
-  margin: 8.5rem auto;
+  padding: 8.5rem 0;
+  margin: 0 auto;
+  width: max-content;
 }
 
 .collection-list {
@@ -21,13 +23,18 @@
   gap: 2.5rem;
 }
 
+.collection-item-container {
+  list-style: none;
+}
+
 .collection-item {
+  text-decoration: none;
   cursor: pointer;
   display: grid;
   grid-template-rows: max-content 1fr repeat(2, max-content);
-  gap: 1.5rem;
+  gap: 1rem;
   height: 66.5rem;
-  height: 45.5rem;
+  height: 35.5rem;
   border-radius: 1.25rem;
   overflow: hidden;
 
@@ -46,13 +53,16 @@
     transition: all 0.3s;
   }
 
-  &__title {
+  &:link &__title,
+  &:visited &__title {
+    text-decoration: none;
     color: $color-white;
     font-size: 2.6rem;
     grid-row: 1 / 2;
     grid-column: 1 / -1;
     z-index: 10;
     padding: 2.5rem 2.5rem;
+    text-shadow: -1px -1px 16px rgba(0, 0, 0, 0.59);
   }
 
   &__text {
@@ -62,10 +72,8 @@
     z-index: 10;
     padding: 0 2.5rem;
     font-size: 1.8rem;
-
-    &-price {
-      font-weight: 600;
-    }
+    text-shadow: -1px -1px 16px rgba(0, 0, 0, 0.59);
+    font-weight: 600;
   }
 
   &__btn {
@@ -80,7 +88,7 @@
     z-index: 10;
     margin: 0 2.5rem;
     margin-bottom: 2.5rem;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     transition: all 0.3s;
 
     &:hover {
@@ -89,4 +97,9 @@
       transition: all 0.3s;
     }
   }
+}
+
+.heading-title-1:link,
+.heading-title-1:visited {
+  text-decoration: none;
 }
