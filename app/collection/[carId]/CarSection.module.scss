@@ -24,3 +24,15 @@
     color: $color-primary-dark;
   }
 }
+
+.content-container {
+  padding: $sides-padding-md;
+}
+
+.content-subcontainer {
+  max-width: $md;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 42.9rem;
+}

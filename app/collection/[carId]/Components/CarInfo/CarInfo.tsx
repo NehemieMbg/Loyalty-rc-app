@@ -1,0 +1,48 @@
+import styles from './CarInfo.module.scss';
+import { CollectionType } from '@/types/CollectionType';
+
+export default function CarInfo(props: { carData: CollectionType }) {
+  const { carData } = props;
+
+  return (
+    <div className={styles['car-info-container']}>
+      <div className={styles['car-info-subcontainer']}>
+        <h1
+          className={styles['car-info-title']}
+        >{`${carData.make} ${carData.model}`}</h1>
+      </div>
+
+      <div className={styles['car-info-subcontainer']}>
+        <div className={` ${styles['car-info']}`}>
+          <h3 className={styles['heading-title-3']}>Year</h3>
+          <p>{carData.year}</p>
+        </div>
+
+        <div className={`${styles['car-info']}`}>
+          <h3 className={styles['heading-title-3']}>Engine</h3>
+          <p>{carData.engine}</p>
+        </div>
+
+        <div className={`${styles['car-info']}`}>
+          <h3 className={styles['heading-title-3']}>Max power</h3>
+          <p>{carData.maxPower} HP</p>
+        </div>
+
+        <div className={`${styles['car-info']}`}>
+          <h3 className={styles['heading-title-3']}>Top speed</h3>
+          <p>{carData.topSpeed} km/h</p>
+        </div>
+
+        <div className={`${styles['car-info']}`}>
+          <h3 className={styles['heading-title-3']}>Acceleration</h3>
+          <p>{carData.acceleration} s</p>
+        </div>
+
+        <div className={`${styles['car-info']}`}>
+          <h3 className={styles['heading-title-3']}>Transmission</h3>
+          <p>{carData.transmission}</p>
+        </div>
+      </div>
+    </div>
+  );
+}

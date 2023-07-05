@@ -1,0 +1,37 @@
+@import '../../../../../sass/variables';
+
+.car-info-container {
+  margin-bottom: 6rem;
+}
+
+.car-info-subcontainer {
+  max-width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.car-info-title {
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.car-info {
+  background-color: $color-secondary-darkest;
+  width: max-content;
+  height: max-content;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  color: white;
+
+  .heading-title-3 {
+    color: $color-secondary-light;
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 1.4rem;
+  }
+}
