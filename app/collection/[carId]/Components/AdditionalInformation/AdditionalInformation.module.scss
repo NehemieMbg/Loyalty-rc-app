@@ -1,0 +1,29 @@
+@import '../../../../../sass/variables';
+
+.additional-info-container {
+  margin-bottom: 6rem;
+}
+
+.heading-title-4 {
+  @include heading-title-4;
+}
+
+.additional-info {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.additional-info__terms a:link,
+.additional-info__terms a:visited {
+  color: $color-black;
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 0.15rem solid $color-black;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $color-primary-dark;
+    border-bottom: 0.15rem solid $color-primary-dark;
+    transition: all 0.3s;
+  }
+}

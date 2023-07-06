@@ -5,6 +5,8 @@ import styles from './CarSection.module.scss';
 import Link from 'next/link';
 import CarInfo from './Components/CarInfo/CarInfo';
 import About from './Components/About/About';
+import Price from './Components/Price/Price';
+import AdditionalInformation from './Components/AdditionalInformation/AdditionalInformation';
 
 export default async function Page({
   params,
@@ -32,6 +34,8 @@ export default async function Page({
           <div className={styles['content-part-1']}>
             <CarInfo carData={carData} />
             <About carData={carData} />
+            <Price carData={carData} />
+            <AdditionalInformation carData={carData} />
           </div>
           <div className={styles['content-part-2']}></div>
         </div>
