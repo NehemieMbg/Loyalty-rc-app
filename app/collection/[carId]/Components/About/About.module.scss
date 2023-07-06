@@ -1,11 +1,9 @@
 @import '../../../../../sass/variables';
 
 .about-container {
-  margin-bottom: 5rem;
-
   .about-title {
     margin-bottom: 1.5rem;
-    @include heading-title-2;
+    @include heading-title-4;
     color: $color-secondary-darkest;
   }
 }

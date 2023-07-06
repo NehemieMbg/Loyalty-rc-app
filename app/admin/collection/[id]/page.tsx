@@ -2,6 +2,8 @@ import CollectionForm from '../../components/CollectionForm/CollectionForm';
 
 import { getCarData } from '@/app/utils/collectionUtils';
 
+export const revalidate = 0;
+
 export default async function Page({
   params,
 }: {
@@ -10,6 +12,7 @@ export default async function Page({
   };
 }) {
   const carData = await getCarData(params.id);
+  console.log(carData);
 
   return (
     <div>

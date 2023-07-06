@@ -92,6 +92,14 @@ $laptop-lg: 1920px;
   font-size: 2.6rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: $tablet-md) {
+    font-size: 2.4rem;
+  }
+
+  @media only screen and (max-width: $tablet-xs) {
+    font-size: 2.2rem;
+  }
 }
 
 @mixin text-highlight {

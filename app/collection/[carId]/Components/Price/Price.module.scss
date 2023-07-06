@@ -1,17 +1,20 @@
 @import '../../../../../sass/variables';
 
 .car-price-title {
-  @include heading-title-2;
+  @include heading-title-4;
   color: $color-secondary-darkest;
 
   margin-bottom: 2.5rem;
 }
 
 .car-price-container {
-  margin-bottom: 6rem;
   padding: 1.5rem;
   background-color: $color-secondary;
   border-radius: 0.8rem;
+
+  @media only screen and (max-width: $tablet-xs) {
+    font-size: 1.4rem;
+  }
 }
 
 .table {
@@ -33,4 +36,18 @@
 .table-title {
   font-size: 1.8rem;
   font-weight: 500;
+
+  @media only screen and (max-width: $tablet-xs) {
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (max-width: 523px) {
+    height: 4.2rem;
+  }
+}
+
+.table-info {
+  @media only screen and (max-width: 443px) {
+    height: 3.8rem;
+  }
 }

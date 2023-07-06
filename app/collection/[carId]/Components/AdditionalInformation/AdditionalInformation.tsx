@@ -16,15 +16,15 @@ export default function AdditionalInformation(props: {
 
       <ul className={styles['additional-info']}>
         <li className={styles['additional-info__list']}>
-          Caution de {carData.deposit}€.
+          Caution de {carData?.deposit}€.
         </li>
         <li className={styles['additional-info__list']}>
-          L'âge minimum du conducteur pour la {carData.make} {carData.model} est
-          de {carData.driverAge} ans.
+          L'âge minimum du conducteur pour la {carData?.make} {carData?.model}{' '}
+          est de {carData?.driverAge} ans.
         </li>
         <li className={styles['additional-info__list']}>
           Il est requis d'avoir un permis de conduire depuis un minimum de{' '}
-          {carData.driverExperience} ans.
+          {carData?.driverExperience} ans.
         </li>
       </ul>
 

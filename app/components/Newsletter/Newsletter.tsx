@@ -13,7 +13,12 @@ function Newsletter() {
   const [emailError, setEmailError] = useState('');
   const emailRef = useRef<HTMLInputElement>(null);
 
-  const showNewsletter = pathname === '/';
+  const path0 = pathname.split('/')[1];
+
+  let showNewsletter = true;
+  if (path0 === 'admin') showNewsletter = false;
+  if (path0 === 'login') showNewsletter = false;
+  if (path0 === 'register') showNewsletter = false;
 
   async function newsletterSubmitHandler(
     event: React.FormEvent<HTMLFormElement>

@@ -1,4 +1,7 @@
 @import '../../../sass/variables';
+.car-section {
+  margin-bottom: 9rem;
+}
 
 .subcontainer {
   padding: $sides-padding-md;
@@ -10,6 +13,34 @@
 
   @media only screen and (max-width: 1177px) {
     display: none;
+  }
+}
+
+.car-title-container {
+  max-width: $md;
+  margin: 0 auto;
+
+  .car-info-title {
+    font-size: 3.4rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+
+    @media only screen and (max-width: $laptop-sm) {
+      font-size: 3.2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media only screen and (max-width: $laptop-xs) {
+      font-size: 3rem;
+    }
+
+    @media only screen and (max-width: $tablet-md) {
+      font-size: 2.8rem;
+    }
+
+    @media only screen and (max-width: $tablet-xs) {
+      font-size: 2.4rem;
+    }
   }
 }
 
@@ -34,5 +65,21 @@
   margin: 0 auto;
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 42.9rem;
+  grid-template-columns: 1fr minmax(42.9rem, 48.5rem);
+
+  @media only screen and (max-width: 1177px) {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+}
+
+.content-part-1 {
+  display: grid;
+  gap: 6rem;
+}
+
+.content-part-2 {
+  @media only screen and (max-width: 1177px) {
+    grid-row: 1 / 2;
+  }
 }

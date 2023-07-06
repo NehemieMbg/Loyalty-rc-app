@@ -56,7 +56,6 @@ function Menu() {
     (async () => {
       setCollectionList(await getCollection());
     })();
-    console.log(collectionList);
 
     if (menuIsOpen) {
       if (!menuOpen) setMenuOpen(true);

@@ -1,14 +1,18 @@
 @import '../../../../../sass/variables';
 
 .car-info-container {
-  margin-bottom: 6rem;
   // overflow: hidden;
 }
 
 .car-info-subcontainer {
-  max-width: 100%;
+  width: 100%;
   display: flex;
+  flex-flow: row wrap;
   gap: 1rem;
+
+  @media only screen and (max-width: $tablet-xs) {
+    gap: 0.5rem;
+  }
 }
 
 .car-info-title {

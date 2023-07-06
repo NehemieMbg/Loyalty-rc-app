@@ -26,6 +26,7 @@ function Backdrop() {
 
   return (
     <div
+      onClick={() => console.log('Backdrom: Clicked')}
       className={`${styles.backdrop} ${
         backdropOpen ? styles['backdrop-active'] : ''
       }`}

@@ -51,7 +51,7 @@
       height: 4.5rem;
       margin-bottom: 1.2rem;
 
-      border: 0.2rem solid $color-secondary-dark-light;
+      border: 0.2rem solid rgb(147, 147, 147);
       border-radius: 0.4rem;
       padding: 0 2rem;
       font-size: 1.6rem;
@@ -67,6 +67,19 @@
 
 .heading-title-1 {
   @include heading-title-1;
+  font-size: 3rem;
+
+  @media only screen and (max-width: $laptop-xs) {
+    font-size: 2.8rem;
+  }
+
+  @media only screen and (max-width: $tablet-md) {
+    font-size: 2.6rem;
+  }
+
+  @media only screen and (max-width: $tablet-xs) {
+    font-size: 2.4rem;
+  }
 }
 
 .form-text {

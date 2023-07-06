@@ -9,7 +9,7 @@ function About(props: { carData: CollectionType }) {
   return (
     <div className={styles['about-container']}>
       <h1 className={styles['about-title']}>À propos de ce véhicule</h1>
-      <p>{carData.about}</p>
+      <p>{carData?.about}</p>
     </div>
   );
 }

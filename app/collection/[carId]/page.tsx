@@ -7,6 +7,9 @@ import CarInfo from './Components/CarInfo/CarInfo';
 import About from './Components/About/About';
 import Price from './Components/Price/Price';
 import AdditionalInformation from './Components/AdditionalInformation/AdditionalInformation';
+import Book from './Components/Book/Book';
+
+export const revalidate = 0;
 
 export default async function Page({
   params,
@@ -30,6 +33,11 @@ export default async function Page({
 
       <CarImages carData={carData} />
       <div className={styles['content-container']}>
+        <div className={styles['car-title-container']}>
+          <h1
+            className={styles['car-info-title']}
+          >{`${carData?.make} ${carData?.model}`}</h1>
+        </div>
         <div className={styles['content-subcontainer']}>
           <div className={styles['content-part-1']}>
             <CarInfo carData={carData} />
@@ -37,7 +45,9 @@ export default async function Page({
             <Price carData={carData} />
             <AdditionalInformation carData={carData} />
           </div>
-          <div className={styles['content-part-2']}></div>
+          <div className={styles['content-part-2']}>
+            <Book carData={carData} />
+          </div>
         </div>
       </div>
     </div>
