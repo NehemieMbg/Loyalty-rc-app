@@ -13,12 +13,13 @@ import Youtube from '../UI/SocialMedia/Youtube';
 const Footer = () => {
   const pathname = usePathname();
 
-  const path0 = pathname.split('/')[1];
+  const path0 = pathname.split('/');
 
   let showFooter = true;
-  if (path0 === 'admin') showFooter = false;
-  if (path0 === 'login') showFooter = false;
-  if (path0 === 'register') showFooter = false;
+  if (path0[1] === 'admin') showFooter = false;
+  if (path0[1] === 'login') showFooter = false;
+  if (path0[1] === 'register') showFooter = false;
+  if (path0[1] === 'collection' && path0[2] === 'booking') showFooter = false;
 
   const year = new Date().getFullYear();
 

@@ -1,12 +1,27 @@
+'use client';
+
 import React from 'react';
 import { CollectionType } from '@/types/CollectionType';
+import { useDispatch } from 'react-redux';
+import { openGallery } from '@/app/store/gallery-slice';
 import styles from './CarImages.module.scss';
 
 export default function CarImages(props: { carData: CollectionType }) {
+  const dispatch = useDispatch();
   const { carData } = props;
 
+  function openGalleryHandler() {
+    dispatch(openGallery());
+  }
+
   return (
-    <div className={styles['car-sideImages-container']}>
+    <div
+      className={styles['car-sideImages-container']}
+      onClick={openGalleryHandler}
+    >
+      <button className={styles['btn-open-gallery']}>
+        {carData?.images.length} Images
+      </button>
       <img
         src={carData?.images[0]}
         alt={`${carData?.make} ${carData?.model}`}

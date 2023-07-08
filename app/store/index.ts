@@ -4,6 +4,7 @@ import navigationSlice from '@/app/store/navigation-slice';
 import fleetNavigationSlice from './fleet-navigation-slice';
 import accountNavigationSlice from './account-navigation-slice';
 import collectionSlice from './collection-slice';
+import gallerySlice from './gallery-slice';
 
 export const store = configureStore({
   reducer: {
@@ -11,10 +12,8 @@ export const store = configureStore({
     fleetNavigation: fleetNavigationSlice,
     accountNavigation: accountNavigationSlice,
     collection: collectionSlice,
+    gallery: gallerySlice,
   },
 });
-
-// export type RootState = ReturnType<typeof store.getState>;
-// export type AppDispatch = typeof store.dispatch;
 
 export default store;

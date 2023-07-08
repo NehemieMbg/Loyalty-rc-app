@@ -1,6 +1,7 @@
-@import '../../../../sass/variables.scss';
+@import '../../../../../sass/variables.scss';
 
 .car-sideImages-container {
+  cursor: pointer;
   display: grid;
   max-width: 192rem;
   margin: 0 auto;
@@ -35,6 +36,19 @@
   @media only screen and (max-width: 550px) {
     grid-template-rows: 36rem;
     gap: 0;
+  }
+
+  .btn-open-gallery {
+    position: absolute;
+    font-weight: 400;
+    font-family: inherit;
+    font-size: 1.4rem;
+    margin: 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: $color-secondary-darkest;
+    color: $color-white;
+    padding: 1rem 2rem;
   }
 
   .car-images__item {

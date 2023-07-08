@@ -1,6 +1,6 @@
 import React from 'react';
 import { getCarData } from '@/app/utils/collectionUtils';
-import CarImages from '../Components/CarImages/CarImages';
+import CarImages from './Components/CarImages/CarImages';
 import styles from './CarSection.module.scss';
 import Link from 'next/link';
 import CarInfo from './Components/CarInfo/CarInfo';
@@ -8,6 +8,7 @@ import About from './Components/About/About';
 import Price from './Components/Price/Price';
 import AdditionalInformation from './Components/AdditionalInformation/AdditionalInformation';
 import Book from './Components/Book/Book';
+import Gallery from './Components/Gallery/Gallery';
 
 export const revalidate = 0;
 
@@ -22,6 +23,8 @@ export default async function Page({
 
   return (
     <div className={styles['car-section']}>
+      <Gallery carData={carData} />
+
       <div className={styles['subcontainer']}>
         <div className={styles['return-btn-container']}>
           <Link href={'/'} className={styles['return-btn']}>
@@ -32,6 +35,7 @@ export default async function Page({
       </div>
 
       <CarImages carData={carData} />
+
       <div className={styles['content-container']}>
         <div className={styles['car-title-container']}>
           <h1

@@ -75,8 +75,8 @@ export default function Login() {
       <div className={styles['signin-container']}>
         <h2 className={styles['signin-container__greeting']}>Bienvenue</h2>
         {/* Google login btn */}
-        {/* <GoogleBtn signInUser={() => signIn('google')} /> */}
-        {/* <div className={styles['signin-chioce']}>ou</div> */}
+        {/* <GoogleBtn signInUser={() => signIn('google')} />
+        <div className={styles['signin-chioce']}>ou</div> */}
         <form
           className={styles['register-container__form']}
           onSubmit={loginUser}

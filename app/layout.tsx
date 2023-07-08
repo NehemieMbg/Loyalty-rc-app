@@ -9,6 +9,7 @@ import Menu from './components/Navigation/Menu';
 import ReduxProvider from './components/Provider/Provider';
 import Backdrop from '@/app/components/Backdrop/Backdrop';
 import BookForm from './components/BookForm/BookForm';
+import Gallery from './collection/[carId]/Components/Gallery/Gallery';
 
 // * Getting the url here and render the navbar according
 

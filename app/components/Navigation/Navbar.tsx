@@ -15,13 +15,13 @@ export default function Navbar() {
   const session = useSession();
 
   const pathname = usePathname();
-  const path0 = pathname.split('/')[1];
+  const path0 = pathname.split('/');
 
   let showNav = true;
-  if (path0 === 'admin') showNav = false;
-  if (path0 === 'login') showNav = false;
-  if (path0 === 'register') showNav = false;
-  // const showNav = pathname === '/' || pathname === '/collection/[carId]';
+  if (path0[1] === 'admin') showNav = false;
+  if (path0[1] === 'login') showNav = false;
+  if (path0[1] === 'register') showNav = false;
+  if (path0[1] === 'collection' && path0[2] === 'booking') showNav = false;
 
   return (
     <>

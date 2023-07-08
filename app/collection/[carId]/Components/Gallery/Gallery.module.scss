@@ -1,0 +1,98 @@
+@import '../../../../../sass/variables';
+
+.gallery {
+  display: none;
+  //   visibility: 0;
+  position: fixed;
+  background-color: $color-white;
+  bottom: -100vh;
+
+  height: 100vh;
+  width: 100%;
+  z-index: 250;
+  overflow: scroll;
+}
+
+.active {
+  display: block;
+  //   visibility: visible;
+  bottom: 0;
+
+  height: 100vh;
+}
+
+// .hidden {
+//   display: none;
+//   position: absolute;
+//   background-color: $color-white;
+//   top: 15;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   height: 100vh;
+//   width: 100%;
+//   z-index: 250;
+// }
+
+.navbar-container {
+  background-color: $color-white;
+  position: fixed;
+  width: 100%;
+}
+
+.navbar {
+  max-width: $md;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+
+  &-return-btn {
+    cursor: pointer;
+    width: max-content;
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+
+    &:hover {
+      gap: 1.5rem;
+      background-color: $color-secondary;
+    }
+  }
+
+  &-active-mode {
+    color: $color-white;
+    background-color: $color-secondary-darkest;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+.gallery-images {
+  margin-top: 7rem;
+  padding: 0 2rem;
+  list-style: none;
+
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  //   grid-template-rows: 48.5rem;
+}
+
+.image-1 {
+  grid-column: 1 / -1;
+}
+
+.image-2 {
+}
+
+.image-1,
+.image-2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
