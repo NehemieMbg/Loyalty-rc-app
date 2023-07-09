@@ -2,37 +2,23 @@
 
 .gallery {
   display: none;
-  //   visibility: 0;
   position: fixed;
   background-color: $color-white;
   bottom: -100vh;
-
   height: 100vh;
   width: 100%;
   z-index: 250;
   overflow: scroll;
+
+  transition: bottom 0.5s;
 }
 
 .active {
   display: block;
-  //   visibility: visible;
   bottom: 0;
 
-  height: 100vh;
+  transition: bottom 0.5s ease-out;
 }
-
-// .hidden {
-//   display: none;
-//   position: absolute;
-//   background-color: $color-white;
-//   top: 15;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-//   height: 100vh;
-//   width: 100%;
-//   z-index: 250;
-// }
 
 .navbar-container {
   background-color: $color-white;
@@ -73,20 +59,39 @@
 
 .gallery-images {
   margin-top: 7rem;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   list-style: none;
 
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(2, 1fr);
-  //   grid-template-rows: 48.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+
+  @media only screen and (max-width: 1440px) {
+    padding: 0 1.3rem;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding: 0 1.1rem;
+  }
+
+  @media only screen and (max-width: 840px) {
+    padding: 0 0.9rem;
+  }
 }
 
-.image-1 {
-  grid-column: 1 / -1;
+.image-container-1 {
+  //   width: 50%;
+  //   height: 85rem;
 }
 
-.image-2 {
+.image-container-2 {
+  //   width: 33%;
+}
+
+.image-container-1,
+.image-container-2 {
+  height: 80vh;
+  width: 100%;
 }
 
 .image-1,

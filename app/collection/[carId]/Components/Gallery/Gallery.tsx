@@ -7,12 +7,14 @@ import { CollectionType } from '@/types/CollectionType';
 
 import styles from './Gallery.module.scss';
 import Image from 'next/image';
+import PictureGallery from './PictureGallery/PictureGallery';
 
 export default function Gallery(props: { carData: CollectionType }) {
   const { carData } = props;
   const dispatch = useDispatch();
 
   const [galleryOpen, setGalleryOpen] = useState(false);
+  const [pictureOpen, setPictureOpen] = useState(false);
 
   const galleryIsOpen = useSelector(
     (state: {
@@ -36,6 +38,11 @@ export default function Gallery(props: { carData: CollectionType }) {
 
   function closeGalleryHandler() {
     dispatch(closeGallery());
+  }
+
+  function galleryClassname(idx: number) {
+    if (idx % 2 === 0) return `${styles['image-container-1']}`;
+    else return `${styles['image-container-2']}`;
   }
 
   return (
@@ -62,15 +69,18 @@ export default function Gallery(props: { carData: CollectionType }) {
 
       <ul className={styles['gallery-images']}>
         {carData?.images.map((img, idx) => (
-          <li>
+          <li
+            className={`${galleryClassname(idx)} ${styles[`img-${idx + 1}`]}`}
+          >
             <Image
               src={img}
               alt={`${carData.make} ${carData.model}`}
               width={3840}
               height={2160}
-              className={
-                idx % 2 === 0 ? `${styles['image-1']}` : `${styles['image-2']}`
-              }
+              className={`
+               ${
+                 idx % 2 === 0 ? `${styles['image-1']}` : `${styles['image-2']}`
+               }`}
             />
           </li>
         ))}
