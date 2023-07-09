@@ -30,7 +30,7 @@ export default function AdditionalInformation(props: {
 
       <p className={styles['additional-info__terms']}>
         N'oubliez pas de consulter nos{' '}
-        <Link href="/">Termes & conditions.</Link>.
+        <Link href="/articles/terms-of-use">Termes & conditions.</Link>.
       </p>
     </div>
   );

@@ -35,7 +35,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li className={styles['footer-list__link footer-link__item-2']}>
-                <Link href={'terms'} className={styles['footer-link']}>
+                <Link
+                  href={'/articles/terms-of-use'}
+                  className={styles['footer-link']}
+                >
                   Terms & Conditions
                 </Link>
               </li>

@@ -1,0 +1,23 @@
+@import '../../sass/variables';
+
+.articles {
+  padding: $sides-padding-md;
+  margin: 9rem 0;
+}
+
+.articles-container {
+  max-width: 123rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 3fr;
+}
+
+.navigation {
+  height: 100%;
+  grid-column: 1 / 2;
+}
+
+.main {
+  grid-column: 2 / 3;
+}

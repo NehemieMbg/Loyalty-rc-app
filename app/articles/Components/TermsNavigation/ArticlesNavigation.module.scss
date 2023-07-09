@@ -1,0 +1,25 @@
+@import '../../../../sass/variables';
+
+.navigation-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  li a:link,
+  li a:visited {
+    text-decoration: none;
+    color: $color-black;
+    transition: all 0.3s;
+    padding: 1rem 2.5rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+  }
+}
+
+.active {
+  font-weight: 600;
+}

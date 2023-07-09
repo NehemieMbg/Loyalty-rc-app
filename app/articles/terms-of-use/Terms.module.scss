@@ -1,0 +1,46 @@
+@import '../../../sass/variables';
+
+.heading-title-1 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 3.5rem;
+}
+
+.heading-title-2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.heading-title-3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.terms {
+  p,
+  ul {
+    margin-bottom: 3.5rem;
+    list-style: none;
+  }
+
+  ul li:before {
+    content: '\2022';
+    color: $color-secondary-darkest;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  .list-exception {
+    margin-bottom: 2.2rem;
+  }
+
+  a:link,
+  a:visited {
+    color: $color-secondary-darkest;
+    font-weight: 500;
+  }
+}
