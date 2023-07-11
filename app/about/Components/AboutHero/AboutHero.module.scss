@@ -4,10 +4,38 @@
   width: 100%;
   height: 100vh;
   top: 0;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 1fr $md 1fr;
 
-  video {
+  @media only screen and (max-width: 1512px) {
+    grid-template-columns: 1fr;
+  }
+
+  .bg-video {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
     width: 100%;
     height: 100vh;
     object-fit: cover;
+  }
+
+  .text {
+    color: $color-white;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    max-width: $md;
+    align-self: center;
+
+    @media only screen and (max-width: 1512px) {
+      grid-column: 1 / -1;
+      margin: $sides-padding-md;
+    }
+
+    .heading-title {
+      font-size: 5.4rem;
+      line-height: 1.1;
+      font-weight: 400;
+    }
   }
 }

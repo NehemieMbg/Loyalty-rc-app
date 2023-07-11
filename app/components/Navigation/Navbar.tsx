@@ -6,7 +6,7 @@ import User from '@/app/components/UI/User';
 import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useDispatch } from 'react-redux';
-import { openMenu } from '@/app/store/navigation-slice';
+import { openMenu, closeMenu } from '@/app/store/navigation-slice';
 import Logo from '@/public/images/logo.png';
 // import Image from 'next/image';
 
@@ -79,7 +79,7 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              <li>
+              <li onClick={() => dispatch(closeMenu())}>
                 <Link
                   href={'/about'}
                   className={`${styles['list-link']}
