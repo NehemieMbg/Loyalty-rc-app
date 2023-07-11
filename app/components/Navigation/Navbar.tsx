@@ -22,41 +22,69 @@ export default function Navbar() {
   if (path0[1] === 'login') showNav = false;
   if (path0[1] === 'register') showNav = false;
   if (path0[1] === 'collection' && path0[2] === 'booking') showNav = false;
+  // if (path0[1] === 'about') showNav = false;
 
   return (
     <>
       {showNav && (
-        <nav className={`${styles.nav} `}>
+        <nav
+          className={`${styles.nav} ${
+            path0[1] === 'about' ? `${styles.transparent}` : ''
+          }`}
+        >
           <div className={styles['nav-container']}>
             <div
-              className={styles['nav-menu-container__menu-btn']}
+              className={`${styles['nav-menu-container__menu-btn']} ${
+                path0[1] === 'about' ? `${styles['bg-transparent']}` : ''
+              }`}
               onClick={() => dispatch(openMenu())}
             >
               <div
-                className={styles['nav-menu-container__menu-btn-hamburger']}
+                className={`${
+                  styles['nav-menu-container__menu-btn-hamburger']
+                } ${
+                  path0[1] === 'about' ? `${styles['btn-transparent']}` : ''
+                }`}
               ></div>
               <p className={styles['menu-text']}>Menu</p>
             </div>
 
-            <Link href={'/'} className={styles['nav-container__logo']}>
+            <Link
+              href={'/'}
+              className={`${styles['nav-container__logo']} ${
+                path0[1] === 'about' ? `${styles['logo-transparent']}` : ''
+              }`}
+            >
               Loyalty RC
             </Link>
 
-            <ul className={styles['list-container']}>
+            <ul className={`${styles['list-container']}`}>
               <li>
-                <Link href={'#collection'} className={styles['list-link']}>
+                <Link
+                  href={'#collection'}
+                  className={`${styles['list-link']}
+                ${path0[1] === 'about' ? `${styles['link-transparent']}` : ''}`}
+                >
                   Nos Véhicules
                 </Link>
               </li>
 
               <li>
-                <Link href={'/services'} className={styles['list-link']}>
+                <Link
+                  href={'/services'}
+                  className={`${styles['list-link']}
+                ${path0[1] === 'about' ? `${styles['link-transparent']}` : ''}`}
+                >
                   Services Inclus
                 </Link>
               </li>
 
               <li>
-                <Link href={'/about'} className={styles['list-link']}>
+                <Link
+                  href={'/about'}
+                  className={`${styles['list-link']}
+                ${path0[1] === 'about' ? `${styles['link-transparent']}` : ''}`}
+                >
                   À Propos
                 </Link>
               </li>

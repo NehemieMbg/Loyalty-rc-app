@@ -7,7 +7,7 @@ function AboutHero() {
   return (
     <div className={styles.hero}>
       <video className={styles['bg-video']} autoPlay muted loop>
-        <source src={'/about_video.webm'} type="video/mp4" />
+        <source src={'/videos/about_video.webm'} type="video/mp4" />
         Votre navigateur n'est pas compatible
       </video>
     </div>
