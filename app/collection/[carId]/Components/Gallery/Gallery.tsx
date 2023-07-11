@@ -71,6 +71,7 @@ export default function Gallery(props: { carData: CollectionType }) {
         {carData?.images.map((img, idx) => (
           <li
             className={`${galleryClassname(idx)} ${styles[`img-${idx + 1}`]}`}
+            key={idx}
           >
             <Image
               src={img}
