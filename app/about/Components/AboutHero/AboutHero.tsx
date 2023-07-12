@@ -20,6 +20,10 @@ function AboutHero() {
             <br />
             Location Automobile
           </h1>
+          <p className={styles['text-content']}>
+            Pour ceux qui aspirent à l'excellence, nous proposons la destination
+            de premier choix pour vivre une expérience automobile inoubliable.
+          </p>
         </div>
       </div>
     </div>

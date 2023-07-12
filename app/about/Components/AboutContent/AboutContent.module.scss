@@ -1,0 +1,59 @@
+@import '../../../../sass/variables';
+
+.content {
+  padding: $sides-padding-md;
+  margin: 18rem 0;
+  overflow: hidden;
+}
+
+.heading-title {
+  font-size: 3.4rem;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.container {
+  max-width: $md;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 9rem;
+
+  @media only screen and (max-width: $laptop-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text {
+  p {
+    font-size: 1.8rem;
+  }
+}
+
+.profil {
+  display: flex;
+  gap: 2rem;
+
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.profil-container {
+  margin-bottom: 2rem;
+  img {
+    width: 31rem;
+    height: 41.4rem;
+
+    object-fit: cover;
+  }
+}
+
+.name {
+  font-size: 2rem;
+}
+
+.position {
+  font-size: 1.4rem;
+  color: $color-secondary-dark;
+  font-weight: 400;
+}
