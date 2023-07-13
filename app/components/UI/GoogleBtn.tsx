@@ -1,7 +1,7 @@
 import styles from './GoogleBtn.module.scss';
 import GoogleLogo from '@/app/components/icons/googleLogo';
 
-export default function GoogleBtn(props) {
+export default function GoogleBtn(props: { signInUser: () => void }) {
   return (
     <div className={styles['google-signin-container']}>
       <button

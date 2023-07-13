@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ExclamationCircle(props) {
+export default function ExclamationCircle(props: { className: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

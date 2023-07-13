@@ -10,7 +10,11 @@ function Backdrop() {
   const dispatch = useDispatch();
   const [backdropOpen, setBackdropOpen] = useState(false);
   const backdropIsActive = useSelector(
-    (state) => state.navigation.menuIsActive
+    (state: {
+      navigation: {
+        menuIsActive: boolean;
+      };
+    }) => state.navigation.menuIsActive
   );
 
   useEffect(() => {

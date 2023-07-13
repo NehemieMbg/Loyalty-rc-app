@@ -51,12 +51,7 @@ export default async function Page() {
                   >
                     Modifier
                   </Link>
-                  {/* <p
-                    className={`${styles['car-list__btn']} ${styles['car-list__btn-delete']}`}
-                    // onClick={() => deleteCar(car.id)}
-                  >
-                    Supprimer
-                  </p> */}
+
                   <DeleteBtn
                     className={`${styles['car-list__btn']} ${styles['car-list__btn-delete']}`}
                     carId={car.id}

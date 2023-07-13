@@ -6,8 +6,6 @@ import ErrorMessage from '@/app/components/ErrorMessage/ErrorMessage';
 import styles from './Newsletter.module.scss';
 import { usePathname } from 'next/navigation';
 
-// Regler les titre sur le home page (mode telephone)
-
 function Newsletter() {
   const pathname = usePathname();
   const [emailError, setEmailError] = useState('');

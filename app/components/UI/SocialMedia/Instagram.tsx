@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Instagram = (props) => {
+const Instagram = (props: { className: string }) => {
   return (
     <a
       href="https://www.instagram.com/loyalty_rc/"

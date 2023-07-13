@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Account.module.scss';
 import Link from 'next/link';
 
-function Account(props) {
+function Account(props: { closeMenu: () => void }) {
   return (
     <>
       <div className={styles['menu-account-container']}>

@@ -1,13 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import styles from './Fleet.module.scss';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import { getCollection } from '@/app/utils/collectionUtils';
+import { CollectionType } from '@/types/CollectionType';
 
-export default function Fleet(props: any) {
+export default function Fleet(props: {
+  collectionList: CollectionType[];
+  closeMenu: () => void;
+}) {
   const { collectionList } = props;
   return (
     <>

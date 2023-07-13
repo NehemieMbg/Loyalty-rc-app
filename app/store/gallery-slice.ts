@@ -13,12 +13,6 @@ const gallerySclice = createSlice({
     closeGallery: (state) => {
       state.galleryIsActive = false;
     },
-    // setImages: (state, action: { payload: never | string[] }) => {
-    //   state.images.push(...action.payload);
-    // },
-    // getImages: (state) => {
-    //   return state.images;
-    // },
   },
 });
 

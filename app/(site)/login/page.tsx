@@ -9,7 +9,7 @@ import { successPopUp, errorPopUp } from '@/app/components/UI/SuccessPopUp';
 import { useRef, useEffect } from 'react';
 import { clearInuputs } from '@/app/utils/formUtils';
 import ExclamationCircle from '@/app/components/UI/ExclamationCircle';
-import GoogleBtn from '@/app/components/UI/GoogleBtn';
+// import GoogleBtn from '@/app/components/UI/GoogleBtn';
 import { useRouter } from 'next/navigation';
 import CircularIndeterminate from '@/app/components/UI/CircularInterminate';
 
@@ -23,11 +23,10 @@ export default function Login() {
   });
 
   const [submittingIsLoading, setSubmittingIsLoading] = useState(false);
-  const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const emailRef = useRef() as any;
+  const passwordRef = useRef() as any;
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
@@ -56,7 +55,7 @@ export default function Login() {
       }
 
       // If no Error
-      setErrorMessage(null);
+      setErrorMessage('');
       clearInuputs([emailRef, passwordRef]);
       setSubmittingIsLoading(false);
       successPopUp('Connexion réussie.');

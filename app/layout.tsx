@@ -9,15 +9,8 @@ import Menu from './components/Navigation/Menu';
 import ReduxProvider from './components/Provider/Provider';
 import Backdrop from '@/app/components/Backdrop/Backdrop';
 import BookForm from './components/BookForm/BookForm';
-import Gallery from './collection/[carId]/Components/Gallery/Gallery';
 
 // * Getting the url here and render the navbar according
-
-const inter = Exo({
-  weight: ['100', '200', '300', '400', '500', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-});
 
 export const metadata = {
   title: 'Location automobile sportive - Loyalty RC',
@@ -42,7 +35,7 @@ export default async function RootLayout({
               </header>
               <main>
                 <ToasterContext />
-                <BookForm />
+                {/* <BookForm /> */}
                 {children}
               </main>
               <footer>

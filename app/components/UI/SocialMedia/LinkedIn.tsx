@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const LinkedIn = (props) => {
+const LinkedIn = (props: { className: string }) => {
   return (
     <a
       href="https://www.linkedin.com/company/loyalty-rc/"

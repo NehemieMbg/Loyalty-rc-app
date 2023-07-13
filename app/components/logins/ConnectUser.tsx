@@ -3,7 +3,12 @@ import Link from 'next/link';
 import styles from './ConnectUser.module.scss';
 import bgImage from '@/public/images/about-bg.jpg';
 
-export default function ConnectUser(props) {
+export default function ConnectUser(props: {
+  children: React.ReactNode;
+  redirectLink: string;
+  redirectMessage: string;
+  mode: string;
+}) {
   return (
     <div className={styles.register}>
       <Image

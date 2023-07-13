@@ -6,11 +6,7 @@ export default function CarInfo(props: { carData: CollectionType }) {
 
   return (
     <div className={styles['car-info-container']}>
-      <div className={styles['car-info-subcontainer']}>
-        {/* <h1
-          className={styles['car-info-title']}
-        >{`${carData.make} ${carData.model}`}</h1> */}
-      </div>
+      <div className={styles['car-info-subcontainer']}></div>
 
       <div className={styles['car-info-subcontainer']}>
         <div className={` ${styles['car-info']} ${styles['item-1']}`}>

@@ -34,17 +34,17 @@ export default function Register() {
   const [confirmPasswordIsFocused, setConfirmPasswordIsFocused] =
     useState(false);
 
-  const [lastNameError, setLastNameError] = useState();
-  const [firstNameError, setFirstNameError] = useState();
-  const [emailError, setEmailError] = useState();
-  const [passwordError, setPasswordError] = useState();
-  const [confirmPasswordError, setConfirmPasswordError] = useState();
+  const [lastNameError, setLastNameError] = useState() as any;
+  const [firstNameError, setFirstNameError] = useState() as any;
+  const [emailError, setEmailError] = useState() as any;
+  const [passwordError, setPasswordError] = useState() as any;
+  const [confirmPasswordError, setConfirmPasswordError] = useState() as any;
 
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+  const firstNameRef = useRef() as any;
+  const lastNameRef = useRef() as any;
+  const emailRef = useRef() as any;
+  const passwordRef = useRef() as any;
+  const passwordConfirmRef = useRef() as any;
 
   function lastNameBlurHandler() {
     setLastNameIsFocused(true);

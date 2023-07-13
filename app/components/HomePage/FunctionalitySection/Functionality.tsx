@@ -6,9 +6,9 @@ function Functionality() {
     <>
       <div className={styles['functionality-container']}>
         <div className={styles['functionality-section']}>
-          {/* <h1 className={styles['heading-title-1']}>
+          <h1 className={styles['heading-title-1']}>
             Le moteur de notre succès
-          </h1> */}
+          </h1>
 
           <div className={styles['functionality-subcontainer']}>
             <div className={styles['functionality-item']}>

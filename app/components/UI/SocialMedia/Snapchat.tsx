@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Snapchat = (props) => {
+const Snapchat = (props: { className: string }) => {
   return (
     <a
       href="https://t.snapchat.com/gccbaf6A"

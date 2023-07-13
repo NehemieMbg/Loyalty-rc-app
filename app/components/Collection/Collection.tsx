@@ -1,9 +1,9 @@
 import styles from './Collection.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { CollectionType } from '@/types/CollectionType';
 
-export default function Collection(props) {
+export default function Collection(props: { carCollection: CollectionType[] }) {
   const { carCollection } = props;
 
   return (

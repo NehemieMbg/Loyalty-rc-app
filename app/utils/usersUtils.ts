@@ -1,7 +1,6 @@
 import { UserRole } from '@/enums/user-enums';
 import { redirect } from 'next/navigation';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { CreateUserType } from '@/types/CreateUserType';
 
 export async function getUsers() {
   try {
@@ -23,7 +22,7 @@ export async function getUsers() {
 
 export async function getUser(userEmail: string) {
   const users = await getUsers();
-  const user = users.filter((user) => user.email === userEmail);
+  const user = users.filter((user: CreateUserType) => user.email === userEmail);
   return user[0];
 }
 

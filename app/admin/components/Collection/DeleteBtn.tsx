@@ -41,4 +41,3 @@ function DeleteBtn(props: { carId: string; className: string }) {
 }
 
 export default DeleteBtn;
-// `${styles['car-list__btn']} ${styles['car-list__btn-delete']}`

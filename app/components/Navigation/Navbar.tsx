@@ -8,7 +8,6 @@ import { useSession } from 'next-auth/react';
 import { useDispatch } from 'react-redux';
 import { openMenu, closeMenu } from '@/app/store/navigation-slice';
 import Logo from '@/public/images/logo.png';
-// import Image from 'next/image';
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -22,7 +21,6 @@ export default function Navbar() {
   if (path0[1] === 'login') showNav = false;
   if (path0[1] === 'register') showNav = false;
   if (path0[1] === 'collection' && path0[2] === 'booking') showNav = false;
-  // if (path0[1] === 'about') showNav = false;
 
   return (
     <>
@@ -69,7 +67,7 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              <li>
+              {/* <li>
                 <Link
                   href={'/services'}
                   className={`${styles['list-link']}
@@ -77,7 +75,7 @@ export default function Navbar() {
                 >
                   Services Inclus
                 </Link>
-              </li>
+              </li> */}
 
               <li onClick={() => dispatch(closeMenu())}>
                 <Link

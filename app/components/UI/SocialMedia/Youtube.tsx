@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Youtube = (props) => {
+const Youtube = (props: { className: string }) => {
   return (
     <a href="/" target="_blank" className={props.className}>
       <svg

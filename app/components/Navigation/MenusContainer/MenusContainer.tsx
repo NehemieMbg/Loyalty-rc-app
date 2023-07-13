@@ -7,7 +7,11 @@ import { closeFleetMenu } from '@/app/store/fleet-navigation-slice';
 import { closeMenu } from '@/app/store/navigation-slice';
 import { closeAccountMenu } from '@/app/store/account-navigation-slice';
 
-function MenusContainer(props) {
+function MenusContainer(props: {
+  className: string;
+  messages: string;
+  children: React.ReactNode;
+}) {
   const dispatch = useDispatch();
 
   function closeReturnMenuHandler() {

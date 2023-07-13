@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCollection } from '../utils/collectionUtils';
 import { CollectionType } from '@/types/CollectionType';
 
 // Defines type of collection initial state.

@@ -134,19 +134,29 @@ function Menu() {
                 </h2>
               </li>
 
-              <li className={styles['menu-list__link']}>
+              {/* <li className={styles['menu-list__link']}>
                 <Link href={'services'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>Service Inclus</span>{' '}
                 </Link>
-              </li>
+              </li> */}
 
-              <li className={styles['menu-list__link']}>
+              <li
+                className={styles['menu-list__link']}
+                onClick={() => {
+                  closeMenuHanlder();
+                }}
+              >
                 <Link href={'about'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>À Propos</span>{' '}
                 </Link>
               </li>
 
-              <li className={styles['menu-list__link']}>
+              <li
+                className={styles['menu-list__link']}
+                onClick={() => {
+                  closeMenuHanlder();
+                }}
+              >
                 <Link href={'blog'} className={styles['list-quick-link']}>
                   <span className={styles['item-1']}>Le Journal</span>{' '}
                 </Link>
